@@ -1,5 +1,5 @@
 import { configure } from '@storybook/react';
-import './styles.scss';
+import './styles.css';
 
 function loadStories() {
   require('../packages/coop-component-pricetag/stories.js');

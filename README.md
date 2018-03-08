@@ -8,28 +8,30 @@ The Coop Trolley supply internal and external partners with Coop agnostic fronte
 
 The packages of this repo are available as npm modules and should be installed from there. Packages can be included as React components or stylesheets only. More info on this to come...
 
-### Running Storybook
+### Running locally with Storybook
 
-See components examples with Storybook. Download this repo and install [Storybook cli tools](https://github.com/storybooks/storybook)
+See components examples with Storybook and develop locally. Download this repo and install [Storybook cli tools](https://github.com/storybooks/storybook) and [gulp cli](https://gulpjs.com/)
 
-Then run 
+Then run
 ```
 npm i
-npm run storybook
+npm run start
 ```
 
 #### Prereqs
 
-Include fonts.
+Include fonts:
 
-Standard: 'MarkOT', 'Open Sans', sans-serif
+Standard: 'MarkOT', 'Open Sans', sans-serif \
 Display: 'Soho Std', 'Roboto Slab', sans-serif
+
+Assumes use with Webpack on the receiving end that minifys etc. for production.
 
 ---
 
 ## Styleguide
 
-Coop has two primary web application types - SPA and CMS solutions - which need two separate strategies. 
+Coop has two primary web application types - SPA and CMS solutions - which need two separate strategies.
 
 ### General notes
 - Use React for advanced JavaScript views

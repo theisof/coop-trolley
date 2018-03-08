@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
-/// import { breakpoints } from '../config'
-import './Tooltip.scss'
+import './Tooltip.css'
 
 // Todo: load from npm
 const breakpoints = {
