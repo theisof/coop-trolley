@@ -2,6 +2,19 @@
 
 *This document is a work in progress.*
 
+### Running Storybook
+
+Run `npm run storybook`
+
+#### Prereqs
+
+Include fonts.
+
+Standard: 'MarkOT', 'Open Sans', sans-serif
+Display: 'Soho Std', 'Roboto Slab', sans-serif
+
+## About
+
 Coop has two primary web application types - SPA and CMS solutions - wich need two separate strategies.
 
 ### Strategy
@@ -29,31 +42,26 @@ Coop has two primary web application types - SPA and CMS solutions - wich need t
 - Stateless components when possible
 - Redux for state management
 - Redux-Saga for side effects
+- Use es6 spread syntax to shortcut props
 
 ##### Component structure:
 1. Imports
 2. Component
-3. PropTypes
-4. Private helpers
-5. Styles
-6. Export default
+3. Private helpers
+4. Styles
+5. Export default
 
 *Example:*
 
 ```javascript
 import React from 'react'
-import PropTypes from 'prop-types';
 import Radium from 'radium'
 
-const MyComponent = Radium( props => (
+const MyComponent = ({ someVariable }) => (
   <div style={styles.wrap}>
-    {calcSomething(props.someVariable)}
+    {calcSomething(someVariable)}
   </div>
-))
-
-MyComponent.propTypes = {
-  someVariable: PropTypes.string.isRequired
-}
+)
 
 const calcSomething = someVariable => {
   return calculatedVariable
@@ -65,7 +73,7 @@ const styles = {
   }
 }
 
-export default MyComponent
+export default Radium(MyComponent)
 
 ```
 
@@ -91,7 +99,7 @@ To keep stylesheets searchable and skimmable avoid nesting and don't prefix elem
 
   &--my-modifier {
     color: green;
-  }    
+  }
 }
 
 // Good
@@ -102,7 +110,7 @@ To keep stylesheets searchable and skimmable avoid nesting and don't prefix elem
 
 .my-block--my-modifier {
   color: green;
-}   
+}
 ```
 
 **Exceptions**: pseudo classes and context versions should be nested

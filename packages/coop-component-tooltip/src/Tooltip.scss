@@ -1,0 +1,44 @@
+$width: 100;
+$sidePadding: 7;
+$tipOffset: -1 * ($width + ($sidePadding * 2)) / 2;
+$arrowOffset: (($width + ($sidePadding * 2)) / 2) - 2.5;
+
+.coop-tooltip__wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.coop-tooltip__tip {
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  position: absolute;
+  font-size: 10px;
+  background-color: #333;
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 10px;
+  border-radius: 2px;
+  left: 50%;
+  visibility: hidden;
+  opacity: 0;
+  padding: 4px #{$sidePadding}px;
+  margin-left: #{$tipOffset}px;
+  width: #{$width}px;
+}
+
+.coop-tooltip__tip--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.coop-tooltip__arrow {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background-color: #333;
+  top: -3px;
+  left: #{$arrowOffset}px;
+}
