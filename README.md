@@ -2,9 +2,21 @@
 
 *This document is a work in progress.*
 
+## Intro
+
+The Coop Trolley supply internal and external partners with Coop agnostic frontend tools to speed up development and improve reusability.
+
+The packages of this repo are available as npm modules and should be installed from there. Packages can be included as React components or stylesheets only. More info on this to come...
+
 ### Running Storybook
 
-Run `npm run storybook`
+See components examples with Storybook. Download this repo and install [Storybook cli tools](https://github.com/storybooks/storybook)
+
+Then run 
+```
+npm i
+npm run storybook
+```
 
 #### Prereqs
 
@@ -13,18 +25,11 @@ Include fonts.
 Standard: 'MarkOT', 'Open Sans', sans-serif
 Display: 'Soho Std', 'Roboto Slab', sans-serif
 
-## About
+---
 
-Coop has two primary web application types - SPA and CMS solutions - wich need two separate strategies.
+## Styleguide
 
-### Strategy
-- Follow standards
-- Use broadly recognized patterns, frameworks and libraries
-- Keep bundle sizes small
-- Clean up redundant code - especially deprecated CSS
-- Continuous refactoring
-- Automatize repeating tasks
-- Seperate frontend from backend when possible
+Coop has two primary web application types - SPA and CMS solutions - which need two separate strategies. 
 
 ### General notes
 - Use React for advanced JavaScript views
@@ -83,7 +88,7 @@ Frontend implementation in backend rendered applications is CMS agnostic though 
 
 Write CSS in SASS and follow the [BEM](http://getbem.com/) naming convention.
 
-Use gulp to compile assets. See the asset setup in [Coop Opskrifter repo](https://coopitdevelopment.visualstudio.com/Coop%20Recipes/Coop%20Recipes%20Team/_git/recipes-src?path=%2Fsrc%2FCoopRecipes.Consumer.Website%2Fassets&version=GBmaster&_a=contents)
+Use Webpack to compile assets. Configs will come later.
 
 To keep stylesheets searchable and skimmable avoid nesting and don't prefix elements and modifiers with ampersands in SASS:
 
