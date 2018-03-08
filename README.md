@@ -1,4 +1,4 @@
-# Coop Frontend Styleguide
+# Coop Trolley
 
 *This document is a work in progress.*
 
