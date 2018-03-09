@@ -16,8 +16,9 @@ module.exports = {
     ...entries()
   },
   output: {
-    filename: 'packages/[name]/dist/bundle.js',
-    path: __dirname
+    filename: 'packages/[name]/index.js',
+    path: __dirname,
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
@@ -49,7 +50,8 @@ module.exports = {
       }
     ]
   },
+  externals: { 'react': 'commonjs react' },
   plugins: [
-    new ExtractTextPlugin('packages/[name]/dist/bundle.css'),
+    new ExtractTextPlugin('packages/[name]/styles.css'),
   ]
 };

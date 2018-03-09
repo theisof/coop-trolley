@@ -1,7 +1,6 @@
 $width: 100;
-$sidePadding: 7;
-$tipOffset: -1 * ($width + ($sidePadding * 2)) / 2;
-$arrowOffset: (($width + ($sidePadding * 2)) / 2) - 2.5;
+$tipOffset: -1 * $width / 2;
+$arrowOffset: ($width / 2) - 2.5;
 
 .coop-tooltip__wrap {
   position: relative;
@@ -23,9 +22,10 @@ $arrowOffset: (($width + ($sidePadding * 2)) / 2) - 2.5;
   left: 50%;
   visibility: hidden;
   opacity: 0;
-  padding: 4px #{$sidePadding}px;
+  padding: 4px 7px;
   margin-left: #{$tipOffset}px;
   width: #{$width}px;
+  box-sizing: border-box;
 }
 
 .coop-tooltip__tip--visible {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Pricetag.scss'
+import './styles.scss'
 
 const PriceTag = ({
   price = 0,

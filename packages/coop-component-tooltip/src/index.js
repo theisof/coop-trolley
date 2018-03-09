@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import './Tooltip.scss'
+import './styles.scss'
 
 // Todo: load from npm
 const breakpoints = {
@@ -38,8 +38,7 @@ class Tooltip extends Component {
       width = 100,
       children,
       text = '',
-      style = {},
-      sidePadding = 7
+      style = {}
   } = this.props
 
     return (
@@ -54,11 +53,11 @@ class Tooltip extends Component {
         { children }
 
         <div
-          style={styles.tip(width, sidePadding)}
+          style={styles.tip(width)}
           className={`coop-tooltip__tip ${visible ? 'coop-tooltip__tip--visible' : ''}`}
         >
           { visible &&
-            <div style={styles.arrow(width, sidePadding)} className='coop-tooltip__arrow'></div>
+            <div style={styles.arrow(width)} className='coop-tooltip__arrow'></div>
           }
           <span>{text}</span>
         </div>
@@ -68,14 +67,12 @@ class Tooltip extends Component {
 }
 
 const styles = {
-  tip: (width, sidePadding) => ({
-    paddingLeft: `${sidePadding}px`,
-    paddingRight: `${sidePadding}px`,
-    marginLeft: `-${(width + sidePadding * 2) / 2}px`,
+  tip: width => ({
+    marginLeft: `-${(width) / 2}px`,
     width
   }),
-  arrow: (width, sidePadding) => ({
-    left: ((width + sidePadding * 2) / 2) - 2.5
+  arrow: width => ({
+    left: ((width) / 2) - 2.5
   })
 }
 

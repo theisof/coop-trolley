@@ -8,16 +8,16 @@
     "build": "webpack --config webpack.config.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish" : "npm run build && cd packages/$COMPONENT/ && npm publish",
-    "version" : "npm run build && cd packages/$COMPONENT/ && npm version"
+    "publish": "npm run build && cd packages/$COMPONENT/ && npm publish",
+    "version": "npm run build && cd packages/$COMPONENT/ && npm version $VERSION"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://theiscoop@bitbucket.org/theiscoop/coop-frontend-styleguide.git"
+    "url": "git+https://github.com/theisof/coop-trolley"
   },
   "author": "theiscoop",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/theiscoop/coop-frontend-styleguide#readme",
+  "homepage": "https://github.com/theisof/coop-trolley",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.36",
     "@babel/preset-env": "^7.0.0-beta.36",
