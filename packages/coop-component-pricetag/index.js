@@ -1,3 +1,3 @@
-import PriceTag from './src/PriceTag'
+import PriceTag from './dist/bundle'
 
 export default PriceTag

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Tooltip from './src/Tooltip';
+import Tooltip from './src/index.js';
 
 storiesOf('Tooltip', module)
   .add('with hover effect', () => (

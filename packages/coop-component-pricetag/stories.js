@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Pricetag from './src/Pricetag';
+import Pricetag from './src/index.js';
 
 storiesOf('PriceTag', module)
   .add('with whole number', () => (

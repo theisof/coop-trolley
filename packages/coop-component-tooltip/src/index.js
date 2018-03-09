@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import './Tooltip.css'
+import './Tooltip.scss'
 
 // Todo: load from npm
 const breakpoints = {
@@ -9,6 +9,7 @@ const breakpoints = {
   lg: 1024,
   xl: 1200
 }
+
 
 class Tooltip extends Component {
   constructor(props) {

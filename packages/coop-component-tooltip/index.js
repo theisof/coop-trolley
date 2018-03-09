@@ -1,3 +1,3 @@
-import Tooltip from './src/Tooltip'
+import Tooltip from './dist/bundle'
 
 export default Tooltip
