@@ -1,12 +1,12 @@
 {
-  "name": "coop_trolley",
+  "name": "coop-trolley",
   "version": "1.0.1",
   "description": "Frontend components for Coop branded apps and websites",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --watch  --config webpack.config.js",
+    "start_webpack": "webpack --watch  --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
-    "storybook": "start-storybook -p 9001 -c .storybook",
+    "start": "start-storybook -p 9001 -c .storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "node ./packages/config/parser.js",
     "publish": "npm run build && cd packages/$PACKAGE/ && npm version $VERSION && npm publish"

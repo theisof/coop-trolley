@@ -14,6 +14,3 @@ Object.keys(variables).forEach( key => {
 })
 
 fs.writeFile(path.resolve(__dirname, './variables.json'), JSON.stringify(result), 'utf8');
-
-
-

@@ -1,7 +1,5 @@
 # Coop Trolley
 
-*This document is a work in progress.*
-
 ## Intro
 
 The Coop Trolley supply internal and external partners with Coop agnostic frontend tools to speed up development and improve reusability.
@@ -10,9 +8,9 @@ The packages of this repo are available as npm modules and should be installed f
 
 Packages can be included as React components or stylesheets only. More info on this to come...
 
-### Running locally with Storybook
+## Running locally with Storybook
 
-See components examples with Storybook and develop locally. Download this repo and install [Storybook cli tools](https://github.com/storybooks/storybook) and [gulp cli](https://gulpjs.com/)
+See components examples with Storybook and develop locally. Download this repo and install [Storybook cli tools](https://github.com/storybooks/storybook)
 
 Then run
 ```
@@ -20,20 +18,37 @@ npm i
 npm run start
 ```
 
-#### Prereqs
+## Prerequisite
 
-Include fonts:
+Load fonts manually. Opens Sans and Roboto Slab can be loaded from Google Fonts.
 
-Standard: 'MarkOT', 'Open Sans', sans-serif \
-Display: 'Soho Std', 'Roboto Slab', sans-serif
+Standard: 'MarkOT' or 'Open Sans'  \
+Display: 'Soho Std' or 'Roboto Slab'
 
 Assumes use with Webpack on the receiving end that minifys etc. for production.
 
+### Npm modules
+
+Module paths are saved in `entryPaths.js` for webpack to pick up when building. Storybook compliant React components go into the `componentPaths` array.
+
+*Note that `@coop/config` module bypasses webpack - it builds into static json and scss vars*
+
+#### Publish/versioning
+
+To update a package, run the following command with the package name and the updated version number:
+
+`PACKAGE='component-name' VERSION=1.0.5 npm run publish`
+
+*Requires you to be part of the @coop team on npm registry. Get invite from [Theis](mailto:theis.othmar.froehlich@coop.dk@coop).*
+
+### To do
+
+- Linting strategies
+- Describe testing strategies
+
 ---
 
-## Styleguide
-
-Coop has two primary web application types - SPA and CMS solutions - which is described further below.
+# Styleguide
 
 ### General notes
 - React for advanced JavaScript views
@@ -41,13 +56,15 @@ Coop has two primary web application types - SPA and CMS solutions - which is de
 - ES6/7 when writing JavaScript (Babel)
 - BEM syntax for CSS class names
 - SCSS for compiling CSS
+- Graceful degradation with acceptable support for IE10+
+- Avoid CSS-frameworks, use flex-box for grids
 
-### Single Page App (SPA)
+## Single Page App (SPA)
 
 - Build SPA's with React.
 - Base projects on Create React App and avoid ejecting.
-- Styling through JavaScript *(Todo: consider inline alternatives)*
-- Use "container with dump components" pattern
+- Styling through JavaScript
+- Use the "container with dump components" pattern
 - Stateless components when possible
 - Redux for state management
 - Redux-Saga for side effects
@@ -62,7 +79,7 @@ Coop has two primary web application types - SPA and CMS solutions - which is de
 
 *Example:*
 
-```javascript
+```jsx
 import React from 'react'
 import Radium from 'radium'
 
@@ -86,13 +103,13 @@ export default Radium(MyComponent)
 
 ```
 
-### CMS solutions
+## CMS solutions
 
 Frontend implementation in backend rendered applications is CMS agnostic though most Coop solution run on Umbraco.
 
 Write CSS in SASS and follow the [BEM](http://getbem.com/) naming convention.
 
-Use Webpack to compile assets. Configs will come later.
+Use Webpack to compile assets (Configs will come later).
 
 To keep stylesheets searchable and skimmable avoid nesting and don't prefix elements and modifiers with ampersands in SASS:
 
@@ -122,7 +139,7 @@ To keep stylesheets searchable and skimmable avoid nesting and don't prefix elem
 }
 ```
 
-**Exceptions**: pseudo classes and context versions should be nested
+**Exceptions**: pseudo classes and context versions should be nested:
 
 *Example:*
 
@@ -139,17 +156,3 @@ To keep stylesheets searchable and skimmable avoid nesting and don't prefix elem
   }
 }
 ```
-### Npm modules
-
-Module paths are saved in `entryPaths.js` for webpack to pick up when building. Storybook compliant React components go into the `componentPaths` array.
-
-*Note that `@coop/config` module bypasses webpack - it builds into static json and scss vars*
-
-#### Publish/versioning
-
-Install [np](https://github.com/sindresorhus/np) globally and run `PACKAGE='component-name' npm run publish` from root
-
-### To do
-
-- Linting strategies
-- Describe testing strategies
