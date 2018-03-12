@@ -1,3 +1,5 @@
+@import '~@coop/config/variables.scss';
+
 $width: 100;
 $tipOffset: -1 * $width / 2;
 $arrowOffset: ($width / 2) - 2.5;
@@ -28,11 +30,6 @@ $arrowOffset: ($width / 2) - 2.5;
   box-sizing: border-box;
 }
 
-.coop-tooltip__tip--visible {
-  visibility: visible;
-  opacity: 1;
-}
-
 .coop-tooltip__arrow {
   position: absolute;
   width: 5px;
@@ -41,4 +38,11 @@ $arrowOffset: ($width / 2) - 2.5;
   background-color: #333;
   top: -3px;
   left: #{$arrowOffset}px;
+}
+
+@media (min-width: $breakpoint-lg) {
+  .coop-tooltip__tip--visible {
+    visibility: visible;
+    opacity: 1;
+  }
 }

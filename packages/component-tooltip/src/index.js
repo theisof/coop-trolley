@@ -2,15 +2,6 @@ import React, { Component } from 'react'
 
 import './styles.scss'
 
-// Todo: load from npm
-const breakpoints = {
-  sm: 500,
-  md: 750,
-  lg: 1024,
-  xl: 1200
-}
-
-
 class Tooltip extends Component {
   constructor(props) {
     super(props);
@@ -21,15 +12,11 @@ class Tooltip extends Component {
   }
 
   onEnter () {
-    this.detectDesktop() && this.setState({ visible: true })
+    this.setState({ visible: true })
   }
 
   onLeave () {
     this.setState({ visible: false })
-  }
-
-  detectDesktop () {
-    return window.innerWidth > breakpoints.xl
   }
 
   render () {
@@ -39,7 +26,7 @@ class Tooltip extends Component {
       children,
       text = '',
       style = {}
-  } = this.props
+    } = this.props
 
     return (
       <div

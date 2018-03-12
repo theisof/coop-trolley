@@ -9,5 +9,7 @@ storiesOf('Tooltip', module)
       <Tooltip width={60} text='Tooltip'>
         <div style={{ fontSize: '20px' }}>Hover me!</div>
       </Tooltip>
+
+      <em style={{ fontSize: '12px', marginLeft: '10px' }}>...on a large display</em>
     </div>
   ))

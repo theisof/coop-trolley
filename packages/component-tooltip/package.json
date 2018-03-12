@@ -11,5 +11,8 @@
     "url": "git+https://github.com/theisof/coop-trolley"
   },
   "author": "theiscoop",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@coop/config": "^1.0.1"
+  }
 }
