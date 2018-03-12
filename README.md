@@ -6,7 +6,9 @@
 
 The Coop Trolley supply internal and external partners with Coop agnostic frontend tools to speed up development and improve reusability.
 
-The packages of this repo are available as npm modules and should be installed from there. Packages can be included as React components or stylesheets only. More info on this to come...
+The packages of this repo are available as npm modules and should be installed from there. See [Coop's npm profile](https://www.npmjs.com/org/coop) for full list of components.
+
+Packages can be included as React components or stylesheets only. More info on this to come...
 
 ### Running locally with Storybook
 
@@ -31,14 +33,14 @@ Assumes use with Webpack on the receiving end that minifys etc. for production.
 
 ## Styleguide
 
-Coop has two primary web application types - SPA and CMS solutions - which need two separate strategies.
+Coop has two primary web application types - SPA and CMS solutions - which is described further below.
 
 ### General notes
-- Use React for advanced JavaScript views
-- No jQuery *(Todo: remove jQuery)*
-- Use ES6/7 when writing JavaScript (Babel)
-- Use BEM syntax for CSS class names
-- Use SCSS for compiling CSS
+- React for advanced JavaScript views
+- No jQuery
+- ES6/7 when writing JavaScript (Babel)
+- BEM syntax for CSS class names
+- SCSS for compiling CSS
 
 ### Single Page App (SPA)
 
@@ -137,10 +139,17 @@ To keep stylesheets searchable and skimmable avoid nesting and don't prefix elem
   }
 }
 ```
+### Npm modules
 
+Module paths are saved in `entryPaths.js` for webpack to pick up when building. Storybook compliant React components go into the `componentPaths` array.
+
+*Note that `@coop/config` module bypasses webpack - it builds into static json and scss vars*
+
+#### Publish/versioning
+
+Install [np](https://github.com/sindresorhus/np) globally and run `PACKAGE='component-name' npm run publish` from root
 
 ### To do
 
 - Linting strategies
-- Testing strategies
-- Refactor code according to styleguide - especially external deliveries
+- Describe testing strategies

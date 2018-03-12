@@ -8,8 +8,8 @@
     "build": "webpack --config webpack.config.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "npm run build && cd packages/$COMPONENT/ && npm publish",
-    "version": "npm run build && cd packages/$COMPONENT/ && npm version $VERSION"
+    "prepublish": "node ./packages/config/parser.js",
+    "publish": "npm run build && cd packages/$PACKAGE/ && npm version $VERSION && npm publish"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "scss-to-json": "^2.0.0"
   }
 }

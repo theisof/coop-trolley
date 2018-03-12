@@ -1,7 +1,7 @@
 {
-  "name": "coop-component-tooltip",
-  "version": "1.0.51",
-  "description": "Simple tooltip to show text on hover",
+  "name": "@coop/component-pricetag",
+  "version": "1.0.0",
+  "description": "Pricetag with sup",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,8 @@
     "url": "git+https://github.com/theisof/coop-trolley"
   },
   "author": "theiscoop",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@coop/config": "^1.0.1"
+  }
 }

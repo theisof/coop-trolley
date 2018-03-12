@@ -1,4 +1,13 @@
-module.exports = [
- 'coop-component-pricetag',
- 'coop-component-tooltip'
+const componentPaths = [
+  'component-pricetag',
+  'component-tooltip'
 ]
+
+const utilPaths = [
+  'utils'
+]
+
+module.exports = {
+  componentPaths,
+  allPaths: componentPaths.concat(utilPaths)
+}

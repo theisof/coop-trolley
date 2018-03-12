@@ -1,10 +1,10 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const entryPaths = require('./entryPaths')
+const { allPaths } = require('./entryPaths')
 
 const entries = () => {
   let entries = {}
 
-  entryPaths.forEach( path => {
+  allPaths.forEach( path => {
     entries[path] = `./packages/${path}/src/index.js`
   })
 

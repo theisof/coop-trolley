@@ -1,0 +1,19 @@
+{
+  "name": "@coop/config",
+  "version": "1.0.1",
+  "description": "Config vars",
+  "main": "variables.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theisof/coop-trolley"
+  },
+  "author": "theiscoop",
+  "license": "ISC",
+  "dependencies": {
+    "camelcase": "^4.1.0",
+    "scss-to-json": "^2.0.0"
+  }
+}
