@@ -85,11 +85,14 @@ var _sortAlphabetically = _interopRequireDefault(__webpack_require__(6));
 
 var _debounce = _interopRequireDefault(__webpack_require__(7));
 
+var _emitEvent = _interopRequireDefault(__webpack_require__(8));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = {
   sortAlphabetically: _sortAlphabetically.default,
-  debounce: _debounce.default
+  debounce: _debounce.default,
+  emitEvent: _emitEvent.default
 };
 exports.default = _default;
 
@@ -106,9 +109,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var sortAlphabetically = function sortAlphabetically(arr) {
-  var asc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var key = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'name';
+  var asc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
   return arr.sort(function (a, b) {
-    return asc ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+    return asc ? a[key].localeCompare(b[key]) : b[key].localeCompare(a[key]);
   });
 };
 
@@ -143,6 +147,40 @@ function debounce(func, wait, immediate) {
 }
 
 ;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var emitEvent = function emitEvent(eventName) {
+  var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+  if (window.CustomEvent) {
+    var event = new CustomEvent(eventName, {
+      detail: {
+        value: value
+      }
+    });
+  } else {
+    var event = document.createEvent('CustomEvent');
+    event.initCustomEvent(eventName, true, true, {
+      value: value
+    });
+  }
+
+  document.dispatchEvent(event);
+};
+
+var _default = emitEvent;
+exports.default = _default;
 
 /***/ })
 /******/ ]);

@@ -1,6 +1,6 @@
 {
   "name": "@coop/component-tooltip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple tooltip to show text on hover",
   "main": "index.js",
   "scripts": {

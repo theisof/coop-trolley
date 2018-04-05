@@ -104,14 +104,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-// Todo: load from npm
-var breakpoints = {
-  sm: 500,
-  md: 750,
-  lg: 1024,
-  xl: 1200
-};
-
 var Tooltip =
 /*#__PURE__*/
 function (_Component) {
@@ -134,7 +126,7 @@ function (_Component) {
   _createClass(Tooltip, [{
     key: "onEnter",
     value: function onEnter() {
-      this.detectDesktop() && this.setState({
+      this.setState({
         visible: true
       });
     }
@@ -144,11 +136,6 @@ function (_Component) {
       this.setState({
         visible: false
       });
-    }
-  }, {
-    key: "detectDesktop",
-    value: function detectDesktop() {
-      return window.innerWidth > breakpoints.xl;
     }
   }, {
     key: "render",

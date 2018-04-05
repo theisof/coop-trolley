@@ -20,7 +20,7 @@ npm run start
 
 ## Prerequisite
 
-Load fonts manually. Opens Sans and Roboto Slab can be loaded from Google Fonts.
+Load fonts manually. Opens Sans and Roboto Slab can be loaded from [Google Fonts](https://fonts.google.com/selection?query=open&selection.family=Open+Sans:400,400i,600,600i,800|Roboto+Slab:400,700).
 
 Standard: 'MarkOT' or 'Open Sans'  \
 Display: 'Soho Std' or 'Roboto Slab'
@@ -39,7 +39,7 @@ To update a package, run the following command with the package name and the upd
 
 `PACKAGE='component-name' VERSION=1.0.5 npm run publish`
 
-*Requires you to be part of the @coop team on npm registry. Get invite from [Theis](mailto:theis.othmar.froehlich@coop.dk@coop).*
+*Requires you to be part of the @coop team on npm registry. Get invite from [Theis](mailto:theis.froehlich@coop.dk@coop).*
 
 ### To do
 
