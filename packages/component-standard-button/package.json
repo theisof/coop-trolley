@@ -1,8 +1,8 @@
 {
-  "name": "@coop/config",
-  "version": "1.0.3",
-  "description": "Config vars",
-  "main": "variables.json",
+  "name": "@coop/component-standard-button",
+  "version": "1.0.1",
+  "description": "Standard styled Coop Button",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,7 +13,6 @@
   "author": "theiscoop",
   "license": "ISC",
   "dependencies": {
-    "camelcase": "^4.1.0",
-    "scss-to-json": "^2.0.0"
+    "@coop/config": "^1.0.3"
   }
 }

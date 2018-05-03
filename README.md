@@ -18,6 +18,8 @@ npm i
 npm run start
 ```
 
+Runs on `http://localhost:9001`
+
 ## Prerequisite
 
 Load fonts manually. Opens Sans and Roboto Slab can be loaded from [Google Fonts](https://fonts.google.com/selection?query=open&selection.family=Open+Sans:400,400i,600,600i,800|Roboto+Slab:400,700).

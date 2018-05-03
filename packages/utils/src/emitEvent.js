@@ -1,5 +1,5 @@
 const emitEvent = (eventName, value = null) => {
-  if (window.CustomEvent) {
+  if (typeof window.CustomEvent === "function") {
     var event = new CustomEvent(eventName, {detail: { value }});
   } else {
     var event = document.createEvent('CustomEvent');

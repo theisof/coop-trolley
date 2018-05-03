@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,7 +70,9 @@ module.exports =
 /* 2 */,
 /* 3 */,
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -81,23 +83,26 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _sortAlphabetically = _interopRequireDefault(__webpack_require__(6));
+var _sortAlphabetically = _interopRequireDefault(__webpack_require__(8));
 
-var _debounce = _interopRequireDefault(__webpack_require__(7));
+var _debounce = _interopRequireDefault(__webpack_require__(9));
 
-var _emitEvent = _interopRequireDefault(__webpack_require__(8));
+var _emitEvent = _interopRequireDefault(__webpack_require__(10));
+
+var _domHelpers = _interopRequireDefault(__webpack_require__(11));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = {
   sortAlphabetically: _sortAlphabetically.default,
   debounce: _debounce.default,
-  emitEvent: _emitEvent.default
+  emitEvent: _emitEvent.default,
+  domHelpers: _domHelpers.default
 };
 exports.default = _default;
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -120,8 +125,16 @@ var _default = sortAlphabetically;
 exports.default = _default;
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports) {
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
 // From undescore.js via https://davidwalsh.name/javascript-debounce-function
 // Returns a function, that, as long as it continues to be invoked, will not
@@ -147,9 +160,11 @@ function debounce(func, wait, immediate) {
 }
 
 ;
+var _default = debounce;
+exports.default = _default;
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -163,7 +178,7 @@ exports.default = void 0;
 var emitEvent = function emitEvent(eventName) {
   var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-  if (window.CustomEvent) {
+  if (typeof window.CustomEvent === "function") {
     var event = new CustomEvent(eventName, {
       detail: {
         value: value
@@ -180,6 +195,84 @@ var emitEvent = function emitEvent(eventName) {
 };
 
 var _default = emitEvent;
+exports.default = _default;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.removeClass = exports.domReady = exports.forEachSelector = exports.getDomDataFromId = exports.getParsedDomDataFromId = void 0;
+
+var getParsedDomDataFromId = function getParsedDomDataFromId(id, dataAtrr) {
+  var attrData = getDomDataFromId(id, dataAtrr);
+  var parsed = JSON.parse(attrData);
+  return parsed;
+};
+
+exports.getParsedDomDataFromId = getParsedDomDataFromId;
+
+var getDomDataFromId = function getDomDataFromId(id, dataAtrr) {
+  var element = document.getElementById(id);
+
+  if (!element) {
+    return null;
+  }
+
+  var attrData = element.getAttribute(dataAtrr);
+  return attrData;
+};
+
+exports.getDomDataFromId = getDomDataFromId;
+
+var forEachSelector = function forEachSelector(selector, callback) {
+  var elements = document.querySelectorAll(selector);
+  Array.prototype.forEach.call(elements, callback);
+};
+
+exports.forEachSelector = forEachSelector;
+
+var domReady = function domReady(callback) {
+  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+    callback();
+  } else {
+    document.addEventListener('DOMContentLoaded', callback);
+  }
+};
+
+exports.domReady = domReady;
+
+var removeClass = function removeClass(target, className) {
+  var index = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+  var el = document.querySelectorAll(target);
+
+  if (el.length === 0) {
+    console.warn('Trying to remove class from non-existing element:', target);
+    return null;
+  }
+
+  el = el[index];
+
+  if (el.classList) {
+    el.classList.remove(className);
+  } else {
+    el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+  }
+};
+
+exports.removeClass = removeClass;
+var _default = {
+  getParsedDomDataFromId: getParsedDomDataFromId,
+  getDomDataFromId: getDomDataFromId,
+  forEachSelector: forEachSelector,
+  domReady: domReady,
+  removeClass: removeClass
+};
 exports.default = _default;
 
 /***/ })

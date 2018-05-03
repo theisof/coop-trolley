@@ -11,7 +11,7 @@ npm install @coop/utils --save
 ```
 
 ```javascript
-import { moduleName } from '@coop/utils'
+import utils from '@coop/utils'
 ```
 
 ## Sort Alphabetically
@@ -21,14 +21,14 @@ Sort arrays alphabetically.
 ### Usage
 
 ```javascript
-sortAlphabetically(array, key, asc = true)
+utils.sortAlphabetically(array, key, asc = true)
 ```
 
 ### Example
 ```javascript
-const arr = [ { name: 'foo' }, name: 'bar' }  ]
+const arr = [ { name: 'foo' }, { name: 'bar' }  ]
 
-const result = sortAlphabetically(arr, 'name')
+const result = utils.sortAlphabetically(arr, 'name')
 
 console.log(result)
 
@@ -42,12 +42,12 @@ Cross browser compliant eventEmitter.
 
 ### Usage
 ```javascript
-emitEvent(eventName, value = null)
+utils.emitEvent(eventName, value = null)
 ```
 
 ### Example
 ```javascript
-emitEvent('trigger-something')
+utils.emitEvent('trigger-something')
 ```
 
 ## Debounce
@@ -57,7 +57,7 @@ Debounce script to avoid firing tasks to often
 ### Example
 ```javascript
 
-const fn = debounce(() => {
+const fn = utils.debounce(() => {
 	// Do stuff
 }, 200);
 
@@ -67,3 +67,27 @@ window.addEventListener('resize', fn);
 *[Source](https://davidwalsh.name/javascript-debounce-function)*
 
 
+## Dom Helpers
+
+Misc dom helpers to use instead of jQuery
+
+### Usage
+
+```javascript
+// Get parsed JSON data stored as data attribute on element
+getParsedDomDataFromId(id, dataAttribute)
+
+// Get unparsed data from attribute on element
+getDomDataFromId(id, dataAttribute)
+
+// Get each of element
+forEachSelector('.class-name', element => {
+	// Do stuff with element
+})
+
+// Fires when dom is ready
+domReady(myFunc)
+
+// Remove class from element
+removeClass(targetElement, classToRemove, optionalIndex)
+```
