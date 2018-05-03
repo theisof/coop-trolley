@@ -9,7 +9,10 @@ The component renders outside the main React app, and is destroyed entirely on c
 Pass an object with title, text and an actions array like below.
 
 ```
-  PopupBox({
+  import '@coop/component-popup-box/styles.css' // import once somewhere
+  import popupBox from '@coop/component-popup-box'
+
+  popupBox({
     title: 'Test',
     text: 'Testing the popup box with a range of random options',
     actions: [

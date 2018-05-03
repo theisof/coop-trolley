@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 33);
+/******/ 	return __webpack_require__(__webpack_require__.s = 29);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -73,7 +73,7 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ 33:
+/***/ 29:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86,7 +86,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(__webpack_require__(0));
 
-__webpack_require__(34);
+__webpack_require__(30);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -104,90 +104,107 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-var Tooltip =
+window.openCoopBackdrops = 0;
+
+var Backdrop =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Tooltip, _Component);
+  _inherits(Backdrop, _Component);
 
-  function Tooltip(props) {
+  function Backdrop(props) {
     var _this;
 
-    _classCallCheck(this, Tooltip);
+    _classCallCheck(this, Backdrop);
 
-    _this = _possibleConstructorReturn(this, (Tooltip.__proto__ || Object.getPrototypeOf(Tooltip)).call(this, props));
-    _this.onEnter = _this.onEnter.bind(_assertThisInitialized(_this));
-    _this.onLeave = _this.onLeave.bind(_assertThisInitialized(_this));
+    _this = _possibleConstructorReturn(this, (Backdrop.__proto__ || Object.getPrototypeOf(Backdrop)).call(this, props));
     _this.state = {
-      visible: false
+      initialLoad: false
     };
+    _this.scrollPosition = 0;
+    _this.lockDocument = _this.lockDocument.bind(_assertThisInitialized(_this));
+    _this.releaseDocument = _this.releaseDocument.bind(_assertThisInitialized(_this));
     return _this;
   }
 
-  _createClass(Tooltip, [{
-    key: "onEnter",
-    value: function onEnter() {
+  _createClass(Backdrop, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
       this.setState({
-        visible: true
+        initialLoad: true
       });
     }
   }, {
-    key: "onLeave",
-    value: function onLeave() {
-      this.setState({
-        visible: false
-      });
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps) {
+      return this.props.visible !== nextProps.visible;
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var visible = this.props.visible;
+
+      if (visible) {
+        this.lockDocument();
+      } else {
+        this.releaseDocument();
+      }
+    }
+  }, {
+    key: "lockDocument",
+    value: function lockDocument() {
+      // Note that execution order is important to get the right dom-behaviour
+      this.scrollPosition = window.pageYOffset;
+      document.body.style.paddingRight = "".concat(this.getScrollBarWidth(), "px");
+      document.body.classList.add("coop-backdrop-body--overlay-open");
+      document.body.style.top = "-".concat(this.scrollPosition, "px");
+      window.openCoopBackdrops = window.openCoopBackdrops + 1;
+    }
+  }, {
+    key: "releaseDocument",
+    value: function releaseDocument() {
+      if (window.openCoopBackdrops === 1) {
+        document.body.classList.remove("coop-backdrop-body--overlay-open");
+        window.scrollTo(0, this.scrollPosition);
+        document.body.style.top = "0px";
+        document.body.style.paddingRight = "0px";
+      }
+
+      window.openCoopBackdrops = window.openCoopBackdrops - 1;
+    }
+  }, {
+    key: "getScrollBarWidth",
+    value: function getScrollBarWidth() {
+      return window.innerWidth - document.body.clientWidth;
     }
   }, {
     key: "render",
     value: function render() {
-      var visible = this.state.visible;
       var _props = this.props,
-          _props$width = _props.width,
-          width = _props$width === void 0 ? 100 : _props$width,
-          children = _props.children,
-          _props$text = _props.text,
-          text = _props$text === void 0 ? '' : _props$text,
-          _props$style = _props.style,
-          style = _props$style === void 0 ? {} : _props$style;
+          visible = _props.visible,
+          onClose = _props.onClose,
+          _props$zIndex = _props.zIndex,
+          zIndex = _props$zIndex === void 0 ? 100000 : _props$zIndex;
+      var invisibleClass = !visible && this.state.initialLoad ? 'coop-backdrop--invisible' : '';
+      var visibilityClass = visible ? 'coop-backdrop--visible' : invisibleClass;
       return _react.default.createElement("div", {
-        ref: "wrap",
-        style: style,
-        onMouseEnter: this.onEnter,
-        onMouseLeave: this.onLeave,
-        onClick: this.onLeave,
-        className: "coop-tooltip__wrap"
-      }, children, _react.default.createElement("div", {
-        style: styles.tip(width),
-        className: "coop-tooltip__tip ".concat(visible ? 'coop-tooltip__tip--visible' : '')
-      }, visible && _react.default.createElement("div", {
-        style: styles.arrow(width),
-        className: "coop-tooltip__arrow"
-      }), _react.default.createElement("span", null, text)));
+        style: {
+          zIndex: zIndex
+        },
+        className: "coop-backdrop ".concat(visibilityClass),
+        onClick: onClose
+      });
     }
   }]);
 
-  return Tooltip;
+  return Backdrop;
 }(_react.Component);
 
-var styles = {
-  tip: function tip(width) {
-    return {
-      marginLeft: "-".concat(width / 2, "px"),
-      width: width
-    };
-  },
-  arrow: function arrow(width) {
-    return {
-      left: width / 2 - 2.5
-    };
-  }
-};
-var _default = Tooltip;
+var _default = Backdrop;
 exports.default = _default;
 
 /***/ }),
 
-/***/ 34:
+/***/ 30:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

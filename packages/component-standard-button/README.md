@@ -5,6 +5,9 @@
 Standard button component with Coop styling.
 
 ```
+  import StandardButton from '@coop/component-standard-button'
+  import '@coop/component-standard-button/styles.css'
+
   <StandardButton type="secondary" onClick={() => {}}>
     My button
   </StandardButton>

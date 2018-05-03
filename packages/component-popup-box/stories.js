@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import PopupBox from './src/index.js';
+import popupBox from './src/index.js';
 
 const onClick = () => {
-  PopupBox({
+  popupBox({
     title: 'Test',
     text: 'Testing the popup box with a range of random options',
     actions: [

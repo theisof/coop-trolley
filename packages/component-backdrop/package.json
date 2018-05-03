@@ -1,7 +1,7 @@
 {
-  "name": "@coop/component-standard-button",
-  "version": "1.0.2",
-  "description": "Standard styled Coop Button",
+  "name": "@coop/component-backdrop",
+  "version": "1.0.3",
+  "description": "Backdrop component to use behind modals, overlays and widgets etc",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

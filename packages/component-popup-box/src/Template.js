@@ -1,9 +1,8 @@
 import React from 'react'
-import StandardButton from '@coop/component-standard-button'
 
 import './styles.scss'
 
-class ConfirmBox extends React.Component {
+class PopupBox extends React.Component {
   constructor(props) {
     super(props);
 
@@ -32,18 +31,18 @@ class ConfirmBox extends React.Component {
     const { options } = this.props
 
     return (
-      <div className={`coop-confirm-box__wrap ${this.state.closing ? 'coop-confirm-box__wrap--closing' : ''}`}>
-        <div className='coop-confirm-box__inner'>
-          <h3 className='coop-confirm-box__title'>
+      <div className={`coop-popup-box__wrap ${this.state.closing ? 'coop-popup-box__wrap--closing' : ''}`}>
+        <div className='coop-popup-box__inner'>
+          <h3 className='coop-popup-box__title'>
             {options.title ? options.title : ''}
           </h3>
 
-          <p className='coop-confirm-box__text'>
+          <p className='coop-popup-box__text'>
             {options.text ? options.text : ''}
           </p>
 
           {options.actions.map((a, i) =>
-            <div className={`coop-confirm-box__button ${a.secondary ? 'coop-confirm-box__button--secondary' : ''}`} onClick={this.buttonClick} data-index={i} key={i}>
+            <div className={`coop-popup-box__button ${a.secondary ? 'coop-popup-box__button--secondary' : ''}`} onClick={this.buttonClick} data-index={i} key={i}>
               {a.text}
             </div>
           )}
@@ -53,4 +52,4 @@ class ConfirmBox extends React.Component {
   }
 }
 
-export default ConfirmBox
+export default PopupBox

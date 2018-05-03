@@ -2,9 +2,9 @@ import React from 'react';
 import Template from './Template'
 import ReactDOM from 'react-dom';
 
-const namespace = "react-custom-confirm-box"
+const namespace = "react-custom-popup-box"
 
-const confirmBox = (options = {}) => {
+const popupBox = (options = {}) => {
   const container = document.createElement("div")
 
   container.id = namespace
@@ -28,4 +28,4 @@ const remove = () => {
   reactTarget && reactTarget.parentNode && reactTarget.parentNode.removeChild(reactTarget)
 }
 
-export default confirmBox
+export default popupBox
