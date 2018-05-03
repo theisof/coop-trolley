@@ -1,0 +1,78 @@
+@import '~@coop/config/variables.scss';
+
+.coop-confirm-box__wrap {
+  position: fixed;
+  z-index: 10000000000000000;
+  top: 0;
+  padding-top: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  animation: fadein 0.3s forwards;
+}
+
+.coop-confirm-box__wrap--closing {
+  animation: fadeout 0.3s forwards;
+}
+
+.coop-confirm-box__inner {
+  background-color: #fff;
+  width: 500px;
+  max-width: 90%;
+  text-align: center;
+  padding: 45px;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+.coop-confirm-box__title {
+  font-family: "Roboto Slab", serif; /* make dynamic */
+  font-size: 22px;
+}
+
+.coop-confirm-box__text {
+  font-family: "Open Sans", sans-serif ; /* make dynamic */
+  font-size: 16px;
+  margin: 20px 0 35px;
+  line-height: 20px;
+}
+
+.coop-confirm-box__button {
+  border: 2px solid #d10a11; /* make dynamic */
+  background-color: #d10a11; /* make dynamic */
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-family: 'Open Sans',sans-serif; /* make dynamic */
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.coop-confirm-box__button:hover {
+  opacity: 0.5;
+}
+
+.coop-confirm-box__button--secondary {
+  background-color: #fff;
+  color: #d10a11;  /* make dynamic */
+}
+
+@keyframes fadein {
+  from { background-color: rgba(0,0,0,0); }
+  to   { background-color: rgba(0,0,0,0.6); }
+}
+
+@keyframes fadeout {
+  from {
+    background-color: rgba(0,0,0,0.6);
+    opacity: 1;
+  }
+  to   {
+    background-color: rgba(0,0,0,0);
+    opacity: 0;
+  }
+}

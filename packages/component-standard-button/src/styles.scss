@@ -1,6 +1,7 @@
 @import '~@coop/config/variables.scss';
 
 .coop-standard-button {
+  font-family: $font-standard;
   background-color: $color-primary;
   width: 100%;
   padding: 10px;

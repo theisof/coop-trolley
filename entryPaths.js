@@ -1,5 +1,6 @@
 const componentPaths = [
   'component-standard-button',
+  'component-popup-box',
   'component-pricetag',
   'component-tooltip'
 ]
