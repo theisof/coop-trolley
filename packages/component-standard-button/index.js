@@ -61,19 +61,17 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports) {
 
 module.exports = require("react");
 
 /***/ }),
-
-/***/ 13:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86,7 +84,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(0));
 
-__webpack_require__(14);
+__webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -109,12 +107,10 @@ var _default = StandardButton;
 exports.default = _default;
 
 /***/ }),
-
-/***/ 14:
+/* 2 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
-
-/******/ });
+/******/ ]);

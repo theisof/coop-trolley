@@ -1,6 +1,6 @@
 {
   "name": "@coop/component-popup-box",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Popup box alternative to system dialogues",
   "main": "index.js",
   "scripts": {

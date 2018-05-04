@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -73,7 +73,14 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ 31:
+/***/ 10:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 9:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86,7 +93,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(0));
 
-__webpack_require__(32);
+__webpack_require__(10);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -121,13 +128,6 @@ var format = function format(price) {
 
 var _default = PriceTag;
 exports.default = _default;
-
-/***/ }),
-
-/***/ 32:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 
