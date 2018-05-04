@@ -1,5 +1,7 @@
 # Coop Trolley
 
+See [component demos](https://coop-trolley.surge.sh/)
+
 ## Intro
 
 The Coop Trolley supply internal and external partners with Coop agnostic frontend tools to speed up development and improve reusability.
@@ -19,6 +21,8 @@ npm run start
 ```
 
 Runs on `http://localhost:9001`
+
+Publish to Surge demo server: `npm run publish_surge`. Updates [https://coop-trolley.surge.sh](https://coop-trolley.surge.sh/) with storybook components.
 
 ## Prerequisite
 

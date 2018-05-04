@@ -4,6 +4,7 @@
   "description": "Frontend components for Coop branded apps and websites",
   "main": "index.js",
   "scripts": {
+    "publish_surge": "build-storybook -c .storybook -o .build && surge ./.build coop-trolley.surge.sh",
     "start_webpack": "webpack --watch  --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
     "start": "start-storybook -p 9001 -c .storybook",
