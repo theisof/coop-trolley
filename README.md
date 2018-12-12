@@ -1,5 +1,7 @@
 # Coop Trolley
 
+Another minor change...
+
 See [component demos](https://coop-trolley.surge.sh/)
 
 ## Intro
