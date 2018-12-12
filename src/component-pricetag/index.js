@@ -61,17 +61,26 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports) {
 
 module.exports = require("react");
 
 /***/ }),
-/* 1 */
+
+/***/ 10:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 9:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -84,35 +93,42 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(0));
 
-__webpack_require__(2);
+__webpack_require__(10);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var StandardButton = function StandardButton(_ref) {
-  var children = _ref.children,
-      _ref$style = _ref.style,
-      style = _ref$style === void 0 ? {} : _ref$style,
-      _ref$onClick = _ref.onClick,
-      onClick = _ref$onClick === void 0 ? function () {} : _ref$onClick,
-      _ref$type = _ref.type,
-      type = _ref$type === void 0 ? 'primary' : _ref$type,
+var PriceTag = function PriceTag(_ref) {
+  var _ref$price = _ref.price,
+      price = _ref$price === void 0 ? 0 : _ref$price,
       _ref$className = _ref.className,
       className = _ref$className === void 0 ? '' : _ref$className;
   return _react.default.createElement("div", {
-    className: "coop-standard-button coop-standard-button--".concat(type, " ").concat(className),
-    style: style,
-    onClick: onClick
-  }, children);
+    className: "coop-pricetag ".concat(className)
+  }, format(price));
 };
 
-var _default = StandardButton;
+var format = function format(price) {
+  var whole;
+  var comma;
+
+  if (Number.isInteger(price)) {
+    whole = price;
+    comma = '00';
+  } else {
+    whole = Math.floor(price);
+    comma = (price * 10 - whole * 10) / 10;
+    comma = String(comma).substring(2, 4);
+    comma = comma.length === 1 ? comma + 0 : comma;
+  }
+
+  return _react.default.createElement("span", null, whole, _react.default.createElement("sup", {
+    className: "coop-pricetag__sup"
+  }, comma));
+};
+
+var _default = PriceTag;
 exports.default = _default;
 
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
 /***/ })
-/******/ ]);
+
+/******/ });
