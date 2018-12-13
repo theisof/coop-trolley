@@ -1,0 +1,34 @@
+.coop-button {
+  font-family: "MarkOT", "Open Sans", sans-serif;
+  background-color: #d10a11;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.5s, border-color 0.5s;
+  border-width: 2px;
+  border-color: #d10a11;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  text-decoration: none; }
+  .coop-button:focus, .coop-button:active, .coop-button:hover {
+    opacity: 0.5;
+    text-decoration: none;
+    color: #fff; }
+
+.coop-button--secondary {
+  background-color: #fff;
+  color: #d10a11; }
+  .coop-button--secondary:focus, .coop-button--secondary:active, .coop-button--secondary:hover {
+    color: #d10a11; }
+
+.coop-button--white-transparent {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff; }
+

@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json';
-import StandardButton from './StandardButton'
+import Button from './Button'
 
-it('StandardButton renders correctly', () => {
-  const tree = shallow( <StandardButton />)
+it('Button renders correctly', () => {
+  const tree = shallow( <Button />)
 
   expect(toJSON(tree)).toMatchSnapshot()
 })
