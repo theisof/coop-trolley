@@ -1,0 +1,44 @@
+.coop-button {
+  font-family: $font-standard;
+  background-color: $color-primary;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.5s, border-color 0.5s;
+  border-width: 2px;
+  border-color: $color-primary;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+
+  &:focus,
+  &:active,
+  &:hover {
+    opacity: 0.5;
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.coop-button--secondary {
+  background-color: #fff;
+  color: $color-primary;
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.coop-button--white-transparent {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
