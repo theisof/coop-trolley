@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile",
-    "test": "jest --watch",
+    "test": "jest --watch --env=jsdom --setupFiles ./setupTests.js",
     "publish": "npm run test && npm run build && npm run transpile"
   },
   "author": "",
