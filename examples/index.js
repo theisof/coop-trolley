@@ -1,27 +1,51 @@
 import React from 'react'
 import { render} from 'react-dom'
 import Button from '../src/components/Button'
+import PopupBox, { initPopupBox } from '../src/components/PopupBox'
 import '../src/styles/coop-trolley.scss'
 import './example.css'
 
-const App = () => (
-  <div className='app'>
-    <div class="section">
-      <h3 class="title">Button</h3>
+const triggerPopup = () => {
+  initPopupBox({
+    title: 'This is a Popup Box',
+    text: 'Use it as a pretty alternative to alert()',
+    actions: [
+      { text: 'That\'s nice' },
+      { text: 'See me trigger me', secondary: true, callback: () => {
+        setTimeout(triggerPopup, 500)
+      }}
+    ]
+  })
+}
 
-      <div className='variation'>
-        <Button>Primary button</Button>
-      </div>
+class App extends React.Component {
+  render () {
+    return (
+      <div className='app'>
+        <div className="section">
+          <h3 className="title">Button</h3>
 
-      <div className='variation'>
-        <Button type='secondary'>Secondary button</Button>
-      </div>
+          <div className='variation'>
+            <Button>Primary button</Button>
+          </div>
 
-      <div className='variation'>
-        <Button type='white-transparent'>White and transparent button</Button>
+          <div className='variation'>
+            <Button type='secondary'>Secondary button</Button>
+          </div>
+
+          <div className='variation'>
+            <Button type='white-transparent'>White and transparent button</Button>
+          </div>
+        </div>
+
+        <div className='section'>
+          <h3 className="title">Popup Box</h3>
+
+          <Button onClick={triggerPopup}>Press to trigger PopupBox</Button>
+        </div>
       </div>
-    </div>
-  </div>
-)
+    )
+  }
+}
 
 render(<App />, document.getElementById("root"))

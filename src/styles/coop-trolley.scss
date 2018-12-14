@@ -1,2 +1,12 @@
 @import './variables.scss';
-@import './button/base';
+@import 'reset-css';
+@import './Button/base';
+@import './PopupBox/base';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
