@@ -6,11 +6,14 @@
   "scripts": {
     "start": "webpack-dev-server --hot --mode development",
     "build": "webpack --mode production",
-    "transpile": "babel src -d dist --copy-files && npm run build && cp build/coop-trolley.css dist",
+    "transpile": "babel src -d dist --copy-files && npm run build && cp examples/dist/coop-trolley.css dist",
     "prepublishOnly": "npm run transpile",
     "test": "jest --watch",
     "test_ci": "jest",
-    "publish_npm": "npm run test_ci && npm publish --access public"
+    "publish_npm": "npm run test_ci && npm publish --access public",
+    "deploy": "gh-pages -d examples/dist",
+    "publish_demo": "npm run build && npm run deploy",
+    "publish_all": "npm run publish_npm && npm run publish_demo"
   },
   "author": "",
   "license": "ISC",
@@ -34,6 +37,7 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "enzyme-to-json": "^3.3.5",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.5.0",

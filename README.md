@@ -1,5 +1,7 @@
 # Coop Trolley
 
+See demos [here](https://theisof.github.io/coop-trolley/)
+
 ## Intro
 
 The Coop Trolley supply internal and external partners with Coop agnostic frontend tools to speed up development and improve reusability.
@@ -49,12 +51,6 @@ Use with plain HTML:
   <div class="coop-button">My Button</div>
 ```
 
-To run from this project start local server on `http://localhost:3001` with:
-```
-  npm i
-  npm run start
-```
-
 ### Git Subtree
 
 Internal users can utilize `git subtree` to push/pull components to project repositories. This allows for updating and improving components on the fly and commit changes to the Coop Trolley repo.
@@ -78,11 +74,15 @@ Display: 'Soho Std' or 'Roboto Slab'
 
 *Todo: solution for new hosted font*
 
-## Structure
+## Development
 
-Components are created with React and organised in folders inlcuding related files - except stylesheets.
+Run local server on `http://localhost:3001` with:
+```
+  npm i
+  npm run start
+```
 
-Stylesheets are separated from React components so that they may be used with plain HTML for smaller projects. Include the `coop-trolley.css` once in the document `<head>`.
+To publish new version, increment version number in `package.json` and run `npm run publish_all`. Will update npm and [Github demo page](https://theisof.github.io/coop-trolley/).
 
 ### To do
 
