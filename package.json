@@ -1,21 +1,23 @@
 {
-  "name": "coop-trolley",
-  "version": "1.0.0",
+  "name": "@coop/trolley",
+  "version": "1.0.5",
   "description": "",
-  "main": "../examples/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --mode development",
     "build": "webpack --mode production",
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile",
     "test": "jest --watch",
-    "publish": "npm run test && npm run build && npm run transpile"
+    "test_ci": "jest",
+    "publish_npm": "npm run test_ci && npm publish --access public"
   },
   "author": "",
   "license": "ISC",
   "peerDependencies": {
     "react": "^16.3.0",
-    "react-dom": "^16.3.0"
+    "react-dom": "^16.3.0",
+    "reset-css": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",

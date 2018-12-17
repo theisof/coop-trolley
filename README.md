@@ -8,6 +8,30 @@ Packages can be included as React components or used in plain HTML with the Coop
 
 ## Getting started
 
+Install from npm:
+
+```
+npm i @coop/trolley --save
+```
+
+Use with React like
+
+```javascript
+import { Button } from '@coop/trolley'
+
+// Import the SASS-file once in the root of your app
+import '@coop/trolley/dist/styles/coop-trolley.scss'
+
+const MyApp = () => (
+  <div>
+    <Button>My Button</Button>
+  </div>
+)
+
+export default MyApp
+```
+
+
 Internal users can utilize `git subtree` (see below) to push/pull components to project repositories. This allows for updating and improving components
 
 External users should load components from `npm` (see below) or download `build/coop-trolley.css` for manual inclusion.
@@ -29,10 +53,6 @@ Add subtree, run `git subtree add --prefix path/to/folder coop-trolley/master --
 Push to subtree, commit first and run `git subtree push --prefix=path/to/folder coop-trolley master`
 
 Pull from subtree, run `git subtree pull --prefix path/to/folder coop-trolley master --squash`
-
-### NPM
-
-*Working on it...* [guide](https://medium.com/dailyjs/building-a-react-component-with-webpack-publish-to-npm-deploy-to-github-guide-6927f60b3220)
 
 ## Prerequisite
 
