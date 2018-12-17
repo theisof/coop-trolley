@@ -8,17 +8,12 @@
     "build": "webpack --mode production",
     "transpile": "babel src -d dist --copy-files && npm run build && cp examples/dist/coop-trolley.css dist",
     "prepublishOnly": "npm run transpile",
-<<<<<<< HEAD
-    "test": "jest --watch --env=jsdom --setupFiles ./setupTests.js",
-    "publish": "npm run test && npm run build && npm run transpile"
-=======
     "test": "jest --watch",
     "test_ci": "jest",
     "publish_npm": "npm run test_ci && npm publish --access public",
     "deploy": "gh-pages -d examples/dist",
     "publish_demo": "npm run build && npm run deploy",
     "publish_all": "npm run publish_npm && npm run publish_demo"
->>>>>>> 2ab01b0d8c200738d6f6d807de4041520e86dbcd
   },
   "author": "",
   "license": "ISC",
