@@ -1,12 +1,12 @@
 {
   "name": "@coop/trolley",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --mode development",
     "build": "webpack --mode production",
-    "transpile": "babel src -d dist --copy-files",
+    "transpile": "babel src -d dist --copy-files && npm run build && cp build/coop-trolley.css dist",
     "prepublishOnly": "npm run transpile",
     "test": "jest --watch",
     "test_ci": "jest",
@@ -38,6 +38,7 @@
     "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

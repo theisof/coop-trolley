@@ -13,28 +13,41 @@ Install from npm:
 ```
 npm i @coop/trolley --save
 ```
+Include the stylesheet once in your project
 
-Use with React like
+```javascript
+// In Javascript
+import '@coop/trolley/dist/coop-trolley.css'
+```
+
+or
+
+```scss
+// In SASS
+@import '~@coop/trolley/dist/styles/coop-trolley';
+```
+
+Components can be used with React or - for static components - as plain HTML.
+
+Use with React:
 
 ```javascript
 import { Button } from '@coop/trolley'
 
-// Import the SASS-file once in the root of your app
-import '@coop/trolley/dist/styles/coop-trolley.scss'
-
-const MyApp = () => (
+const MyComponent = () => (
   <div>
     <Button>My Button</Button>
   </div>
 )
 
-export default MyApp
+export default MyComponent
 ```
 
+Use with plain HTML:
 
-Internal users can utilize `git subtree` (see below) to push/pull components to project repositories. This allows for updating and improving components
-
-External users should load components from `npm` (see below) or download `build/coop-trolley.css` for manual inclusion.
+```html
+  <div class="coop-button">My Button</div>
+```
 
 To run from this project start local server on `http://localhost:3001` with:
 ```
@@ -43,6 +56,8 @@ To run from this project start local server on `http://localhost:3001` with:
 ```
 
 ### Git Subtree
+
+Internal users can utilize `git subtree` to push/pull components to project repositories. This allows for updating and improving components on the fly and commit changes to the Coop Trolley repo.
 
 From project root.
 
