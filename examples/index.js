@@ -1,7 +1,6 @@
 import React from 'react'
 import { render} from 'react-dom'
-import Button from '../src/components/Button'
-import PopupBox, { initPopupBox } from '../src/components/PopupBox'
+import { Button, initPopupBox } from '../src'
 import '../src/styles/coop-trolley.scss'
 import './example.css'
 

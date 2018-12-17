@@ -1,15 +1,17 @@
-const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
   template: path.join(__dirname, "examples/index.html"),
   filename: "./index.html"
-});
+})
 
 module.exports = {
   entry: path.join(__dirname, "examples/index.js"),
   output: {
-    path: path.join(__dirname, "build"),
+    path: path.join(__dirname, "examples/dist"),
     filename: "coop-trolley.js"
   },
   module: {
@@ -41,5 +43,10 @@ module.exports = {
   },
   devServer: {
     port: 3001
-  }
-};
+  },
+  optimization: {
+    minimizer: [
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
+}

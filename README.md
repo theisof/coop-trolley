@@ -1,5 +1,7 @@
 # Coop Trolley
 
+See demos [here](https://theisof.github.io/coop-trolley/)
+
 ## Intro
 
 The Coop Trolley supply internal and external partners with Coop agnostic frontend tools to speed up development and improve reusability.
@@ -8,17 +10,50 @@ Packages can be included as React components or used in plain HTML with the Coop
 
 ## Getting started
 
-Internal users can utilize `git subtree` (see below) to push/pull components to project repositories. This allows for updating and improving components
+Install from npm:
 
-External users should load components from `npm` (see below) or download `build/coop-trolley.css` for manual inclusion.
-
-To run from this project start local server on `http://localhost:3001` with:
 ```
-  npm i
-  npm run start
+npm i @coop/trolley --save
+```
+Include the stylesheet once in your project
+
+```javascript
+// In Javascript
+import '@coop/trolley/dist/coop-trolley.css'
+```
+
+or
+
+```scss
+// In SASS
+@import '~@coop/trolley/dist/styles/coop-trolley';
+```
+
+Components can be used with React or - for static components - as plain HTML.
+
+Use with React:
+
+```javascript
+import { Button } from '@coop/trolley'
+
+const MyComponent = () => (
+  <div>
+    <Button>My Button</Button>
+  </div>
+)
+
+export default MyComponent
+```
+
+Use with plain HTML:
+
+```html
+  <div class="coop-button">My Button</div>
 ```
 
 ### Git Subtree
+
+Internal users can utilize `git subtree` to push/pull components to project repositories. This allows for updating and improving components on the fly and commit changes to the Coop Trolley repo.
 
 From project root.
 
@@ -30,10 +65,6 @@ Push to subtree, commit first and run `git subtree push --prefix=path/to/folder 
 
 Pull from subtree, run `git subtree pull --prefix path/to/folder coop-trolley master --squash`
 
-### NPM
-
-*Working on it...* [guide](https://medium.com/dailyjs/building-a-react-component-with-webpack-publish-to-npm-deploy-to-github-guide-6927f60b3220)
-
 ## Prerequisite
 
 Load fonts manually. Opens Sans and Roboto Slab can be loaded from [Google Fonts](https://fonts.google.com/selection?query=open&selection.family=Open+Sans:400,400i,600,600i,800|Roboto+Slab:400,700).
@@ -43,11 +74,15 @@ Display: 'Soho Std' or 'Roboto Slab'
 
 *Todo: solution for new hosted font*
 
-## Structure
+## Development
 
-Components are created with React and organised in folders inlcuding related files - except stylesheets.
+Run local server on `http://localhost:3001` with:
+```
+  npm i
+  npm run start
+```
 
-Stylesheets are separated from React components so that they may be used with plain HTML for smaller projects. Include the `coop-trolley.css` once in the document `<head>`.
+To publish new version, increment version number in `package.json` and run `npm run publish_all`. Will update npm and [Github demo page](https://theisof.github.io/coop-trolley/).
 
 ### To do
 
