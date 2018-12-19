@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation renders correctly 1`] = `
+<header
+  className="coop-nav "
+>
+  <div
+    className="coop-global-nav"
+  >
+    <div
+      className="coop-global-nav__close-wrap"
+      onClick={[Function]}
+    >
+      <img
+        alt="Luk"
+        className="coop-global-nav__close-image"
+        src="images/times-black.svg"
+      />
+    </div>
+    <ul
+      className="coop-nav__list coop-global-nav__list"
+    >
+      <li
+        className="coop-global-nav__item"
+        key="0"
+      >
+        <NavigationLink
+          className="coop-global-nav__link"
+          link="https://coop.dk/kundeservice"
+          name="Kundeservice"
+        />
+      </li>
+      <li
+        className="coop-global-nav__item"
+        key="1"
+      >
+        <NavigationLink
+          className="coop-global-nav__link"
+          link="https://tilmeld.coop.dk/standard/forside"
+          name="Bliv medlem"
+        />
+      </li>
+    </ul>
+  </div>
+  <div
+    className="coop-site-nav"
+  >
+    <div
+      className="coop-site-nav__mobile"
+    >
+      <img
+        alt="menu"
+        className="coop-site-nav__mobile-toggle"
+        onClick={[Function]}
+        src="images/burger.svg"
+      />
+      <img
+        alt="menu"
+        className="coop-site-nav__mobile-search"
+        onClick={[Function]}
+        src="images/search.svg"
+      />
+    </div>
+    <a
+      className="coop-site-nav__logo-wrap"
+      href="/"
+    >
+      <img
+        alt="logo"
+        className="coop-site-nav__logo-image"
+        src={null}
+      />
+    </a>
+    <div
+      className="coop-site-nav__search "
+    >
+      <Search />
+      <div
+        className="coop-site-nav__close-wrap"
+        onClick={[Function]}
+      >
+        <img
+          alt="Luk"
+          className="coop-site-nav__close-image"
+          src="images/times-black.svg"
+        />
+      </div>
+    </div>
+    <ul
+      className="coop-nav__list coop-site-nav__list"
+    />
+  </div>
+  <div
+    className="coop-context-nav"
+  >
+    <ul
+      className="coop-nav__list coop-context-nav__list"
+    />
+  </div>
+  <Backdrop
+    onClose={[Function]}
+    visible={false}
+  />
+</header>
+`;
