@@ -1378,7 +1378,21 @@ var Button_Button = function Button(_ref) {
   siteItems: [],
   contextItems: []
 });
+// CONCATENATED MODULE: ./src/utils/getImagePath/getImagePath.js
+var getImagePath = function getImagePath(image) {
+  if (window.location.host.indexOf('localhost') > -1) {
+    return "images/".concat(image);
+  }
+
+  return "https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/".concat(image);
+};
+
+/* harmony default export */ var getImagePath_getImagePath = (getImagePath);
+// CONCATENATED MODULE: ./src/utils/getImagePath/index.js
+
+/* harmony default export */ var utils_getImagePath = (getImagePath_getImagePath);
 // CONCATENATED MODULE: ./src/components/Navigation/NavigationLink.js
+
 
 
 var NavigationLink_NavigationLink = function NavigationLink(_ref) {
@@ -1394,7 +1408,7 @@ var NavigationLink_NavigationLink = function NavigationLink(_ref) {
   var content = react_default.a.createElement("span", null, react_default.a.createElement("span", {
     className: "".concat(className, "-name")
   }, name), iconUrl && react_default.a.createElement("img", {
-    src: iconUrl,
+    src: utils_getImagePath(iconUrl),
     className: "".concat(className, "-icon")
   }));
   return onClick ? react_default.a.createElement("div", {
@@ -1709,6 +1723,7 @@ function Navigation_assertThisInitialized(self) { if (self === void 0) { throw n
 
 
 
+
 var Navigation_Navigation =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1802,7 +1817,7 @@ function (_React$Component) {
         className: "coop-global-nav__close-wrap",
         onClick: this.hideMobileNav
       }, react_default.a.createElement("img", {
-        src: "images/times-black.svg",
+        src: utils_getImagePath('times-black.svg'),
         className: "coop-global-nav__close-image",
         alt: "Luk"
       })), react_default.a.createElement("ul", {
@@ -1819,12 +1834,12 @@ function (_React$Component) {
       }, react_default.a.createElement("div", {
         className: "coop-site-nav__mobile"
       }, react_default.a.createElement("img", {
-        src: "images/burger.svg",
+        src: utils_getImagePath('burger.svg'),
         alt: "menu",
         className: "coop-site-nav__mobile-toggle",
         onClick: this.showMobileNav
       }), react_default.a.createElement("img", {
-        src: "images/search.svg",
+        src: utils_getImagePath('search.svg'),
         alt: "menu",
         className: "coop-site-nav__mobile-search",
         onClick: this.showMobileSearch
@@ -1832,7 +1847,7 @@ function (_React$Component) {
         href: siteLogo.link,
         className: "coop-site-nav__logo-wrap"
       }, react_default.a.createElement("img", {
-        src: siteLogo.imageUrl,
+        src: utils_getImagePath(siteLogo.image),
         alt: "logo",
         className: "coop-site-nav__logo-image"
       })), react_default.a.createElement("div", {
@@ -1841,7 +1856,7 @@ function (_React$Component) {
         className: "coop-site-nav__close-wrap",
         onClick: this.hideMobileSearch
       }, react_default.a.createElement("img", {
-        src: "images/times-black.svg",
+        src: utils_getImagePath('times-black.svg'),
         className: "coop-site-nav__close-image",
         alt: "Luk"
       }))), react_default.a.createElement("ul", {
@@ -2002,12 +2017,12 @@ var emitEvent = function emitEvent(eventName) {
 // CONCATENATED MODULE: ./examples/navConfig.js
 /* harmony default export */ var navConfig = ({
   siteLogo: {
-    imageUrl: 'images/opskrifter-logo.svg',
+    image: 'opskrifter-logo.svg',
     link: '/'
   },
   siteItems: [{
     name: 'Gemte',
-    iconUrl: 'images/heart.svg',
+    iconUrl: 'heart.svg',
     onClick: function onClick() {
       console.log('clicked gemt');
     }
