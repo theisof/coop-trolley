@@ -1,11 +1,9 @@
 $global-nav-height: 38px;
-$site-nav-height: 60px;
 $mobile-width: 80%;
 
 @import './nav';
 @import './global-nav';
 @import './site-nav';
-@import './nav-search';
 @import './context-nav';
 
 @media (max-width: $breakpoint-sm) {

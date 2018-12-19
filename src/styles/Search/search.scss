@@ -1,14 +1,15 @@
-.coop-nav-search {
+.coop-search {
   position: relative;
   font-family: $font-standard;
 }
 
-.coop-nav-search__input {
+.coop-search__input {
   width: 100%;
   height: 35px;
   padding: 0 10px;
   font-family: $font-standard;
   border: 1px solid $color-gray-light;
+  font-size: 12px;
 
   &:focus {
     outline: 0;
@@ -16,7 +17,7 @@
   }
 }
 
-.coop-nav-search__results {
+.coop-search__results {
   position: absolute;
   width: 100%;
   background-color: #fff;
@@ -24,7 +25,7 @@
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
-.coop-nav-search__section-title {
+.coop-search__section-title {
   font-size: 12px;
   font-weight: bold;
   padding: 10px;
@@ -32,50 +33,15 @@
   font-family: $font-display;
 }
 
-.coop-nav-search__item {
-  display: flex;
-  align-items: center;
-  padding: 7px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-
-  &,
-  &:focus,
-  &:visited {
-    color: #000;
-    text-decoration: none;
-  }
-
-  &:hover,
-  &:active {
-    .coop-nav-search__thumbnail,
-    .coop-nav-search__name {
-      opacity: 0.7;
-    }
-  }
-}
-
-.coop-nav-search__thumbnail {
-  height: 50px;
-  width: auto;
-  margin: 2px 10px 2px 5px;
-}
-
-.coop-nav-search__name {
-  padding: 5px;
-  font-size: 12px;
-  line-height: 1.4;
-}
-
 @media (max-width: $breakpoint-sm) {
-  .coop-nav-search {
+  .coop-search {
     height: $site-nav-height;
     border: none;
     border-bottom: 1px solid #ddd;
     padding: 0;
   }
 
-  .coop-nav-search__input {
+  .coop-search__input {
     height: 100%;
     font-size: 16px;
   }

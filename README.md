@@ -69,6 +69,10 @@ Pull from subtree, run `git subtree pull --prefix path/to/folder coop-trolley ma
 
 Load fonts manually. Opens Sans and Roboto Slab can be loaded from [Google Fonts](https://fonts.google.com/selection?query=open&selection.family=Open+Sans:400,400i,600,600i,800|Roboto+Slab:400,700).
 
+```html
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i,800|Roboto+Slab:400,700" rel="stylesheet">
+```
+
 Standard: 'MarkOT' or 'Open Sans'  \
 Display: 'Soho Std' or 'Roboto Slab'
 
@@ -83,6 +87,8 @@ Run local server on `http://localhost:3001` with:
 ```
 
 To publish new version, increment version number in `package.json` and run `npm run publish_all`. Will update npm and [Github demo page](https://theisof.github.io/coop-trolley/).
+
+To only update Github pages run `npm run publish_demo`
 
 ### To do
 

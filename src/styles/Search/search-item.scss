@@ -1,0 +1,34 @@
+.coop-search__item {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+
+  &,
+  &:focus,
+  &:visited {
+    color: #000;
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:active {
+    .coop-search__thumbnail,
+    .coop-search__name {
+      opacity: 0.7;
+    }
+  }
+}
+
+.coop-search__thumbnail {
+  height: 50px;
+  width: auto;
+  margin: 2px 10px 2px 5px;
+}
+
+.coop-search__name {
+  padding: 5px;
+  font-size: 12px;
+  line-height: 1.4;
+}

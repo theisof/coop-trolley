@@ -1,7 +1,7 @@
 import React from 'react'
-import NavigationSearchItem from './NavigationSearchItem'
+import SearchItem from './SearchItem'
 
-class NavigationSearch extends React.Component {
+class Search extends React.Component {
   constructor(props) {
     super(props);
 
@@ -19,21 +19,21 @@ class NavigationSearch extends React.Component {
     const { searchResults, onSearchItemClick } = this.props
 
     return (
-      <div className='coop-nav-search'>
+      <div className='coop-search'>
         <input
-          className='coop-nav-search__input'
+          className='coop-search__input'
           placeholder="Søg..."
           onChange={this.handleInputChange}
         />
 
-        <div className='coop-nav-search__results'>
+        <div className='coop-search__results'>
           { searchResults.map((s, i) =>
-            <div key={i} className='coop-nav-search__section'>
-              <h4 className='coop-nav-search__section-title'>{s.title}</h4>
+            <div key={i} className='coop-search__section'>
+              <h4 className='coop-search__section-title'>{s.title}</h4>
 
-              <div className='coop-nav-search__section-results'>
+              <div className='coop-search__section-results'>
                 { s.results.map((r, e) =>
-                  <NavigationSearchItem key={e} {...r} onSearchItemClick={onSearchItemClick} />
+                  <SearchItem key={e} {...r} onSearchItemClick={onSearchItemClick} />
                 )}
               </div>
             </div>
@@ -44,4 +44,4 @@ class NavigationSearch extends React.Component {
   }
 }
 
-export default NavigationSearch
+export default Search

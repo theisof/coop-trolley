@@ -61,7 +61,7 @@
     transform: translate3d(0, -105%, 0);
     transition: transform 0.3s;
 
-    .coop-nav-search__results {
+    .coop-search__results {
       display: none;
     }
   }
@@ -69,7 +69,7 @@
   .coop-site-nav__search--mobile-visible {
     transform: translate3d(0, 0, 0);
 
-    .coop-nav-search__results {
+    .coop-search__results {
       display: block;
     }
   }
