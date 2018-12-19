@@ -1526,44 +1526,44 @@ function (_Component) {
 // CONCATENATED MODULE: ./src/components/Backdrop/index.js
 
 /* harmony default export */ var components_Backdrop = (components_Backdrop_Backdrop);
-// CONCATENATED MODULE: ./src/components/Navigation/NavigationSearchItem.js
-function NavigationSearchItem_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { NavigationSearchItem_typeof = function _typeof(obj) { return typeof obj; }; } else { NavigationSearchItem_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return NavigationSearchItem_typeof(obj); }
+// CONCATENATED MODULE: ./src/components/Search/SearchItem.js
+function SearchItem_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { SearchItem_typeof = function _typeof(obj) { return typeof obj; }; } else { SearchItem_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return SearchItem_typeof(obj); }
 
-function NavigationSearchItem_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function SearchItem_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function NavigationSearchItem_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function SearchItem_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function NavigationSearchItem_createClass(Constructor, protoProps, staticProps) { if (protoProps) NavigationSearchItem_defineProperties(Constructor.prototype, protoProps); if (staticProps) NavigationSearchItem_defineProperties(Constructor, staticProps); return Constructor; }
+function SearchItem_createClass(Constructor, protoProps, staticProps) { if (protoProps) SearchItem_defineProperties(Constructor.prototype, protoProps); if (staticProps) SearchItem_defineProperties(Constructor, staticProps); return Constructor; }
 
-function NavigationSearchItem_possibleConstructorReturn(self, call) { if (call && (NavigationSearchItem_typeof(call) === "object" || typeof call === "function")) { return call; } return NavigationSearchItem_assertThisInitialized(self); }
+function SearchItem_possibleConstructorReturn(self, call) { if (call && (SearchItem_typeof(call) === "object" || typeof call === "function")) { return call; } return SearchItem_assertThisInitialized(self); }
 
-function NavigationSearchItem_getPrototypeOf(o) { NavigationSearchItem_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return NavigationSearchItem_getPrototypeOf(o); }
+function SearchItem_getPrototypeOf(o) { SearchItem_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return SearchItem_getPrototypeOf(o); }
 
-function NavigationSearchItem_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) NavigationSearchItem_setPrototypeOf(subClass, superClass); }
+function SearchItem_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) SearchItem_setPrototypeOf(subClass, superClass); }
 
-function NavigationSearchItem_setPrototypeOf(o, p) { NavigationSearchItem_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return NavigationSearchItem_setPrototypeOf(o, p); }
+function SearchItem_setPrototypeOf(o, p) { SearchItem_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return SearchItem_setPrototypeOf(o, p); }
 
-function NavigationSearchItem_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function SearchItem_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
-var NavigationSearchItem_NavigationSearch =
+var SearchItem_SearchItem =
 /*#__PURE__*/
 function (_React$Component) {
-  NavigationSearchItem_inherits(NavigationSearch, _React$Component);
+  SearchItem_inherits(SearchItem, _React$Component);
 
-  function NavigationSearch(props) {
+  function SearchItem(props) {
     var _this;
 
-    NavigationSearchItem_classCallCheck(this, NavigationSearch);
+    SearchItem_classCallCheck(this, SearchItem);
 
-    _this = NavigationSearchItem_possibleConstructorReturn(this, NavigationSearchItem_getPrototypeOf(NavigationSearch).call(this, props));
+    _this = SearchItem_possibleConstructorReturn(this, SearchItem_getPrototypeOf(SearchItem).call(this, props));
     _this.state = {};
-    _this.handleClick = _this.handleClick.bind(NavigationSearchItem_assertThisInitialized(NavigationSearchItem_assertThisInitialized(_this)));
+    _this.handleClick = _this.handleClick.bind(SearchItem_assertThisInitialized(SearchItem_assertThisInitialized(_this)));
     return _this;
   }
 
-  NavigationSearchItem_createClass(NavigationSearch, [{
+  SearchItem_createClass(SearchItem, [{
     key: "handleClick",
     value: function handleClick(e) {
       var onSearchItemClick = this.props.onSearchItemClick;
@@ -1576,73 +1576,63 @@ function (_React$Component) {
           thumbnail = _this$props.thumbnail,
           name = _this$props.name;
       return react_default.a.createElement("div", {
-        className: "coop-nav-search__item",
+        className: "coop-search__item",
         onClick: this.handleClick
       }, thumbnail && react_default.a.createElement("img", {
         src: thumbnail,
         alt: name,
-        className: "coop-nav-search__thumbnail"
+        className: "coop-search__thumbnail"
       }), react_default.a.createElement("div", {
-        className: "coop-nav-search__name"
+        className: "coop-search__name"
       }, name));
     }
   }]);
 
-  return NavigationSearch;
+  return SearchItem;
 }(react_default.a.Component);
 
-/* harmony default export */ var NavigationSearchItem = (NavigationSearchItem_NavigationSearch);
-/*
-
-   <a href={r.link} key={e} className='coop-nav-search__link'>
-        <img src={r.thumbnail} alt={r.name} className='coop-nav-search__thumbnail' />
-
-        <div  className='coop-nav-search__name'>
-          { r.name }
-        </div>
-      </a>
-*/
-// CONCATENATED MODULE: ./src/components/Navigation/NavigationSearch.js
-function NavigationSearch_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { NavigationSearch_typeof = function _typeof(obj) { return typeof obj; }; } else { NavigationSearch_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return NavigationSearch_typeof(obj); }
+/* harmony default export */ var Search_SearchItem = (SearchItem_SearchItem);
+// CONCATENATED MODULE: ./src/components/Search/Search.js
+function Search_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Search_typeof = function _typeof(obj) { return typeof obj; }; } else { Search_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Search_typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function NavigationSearch_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function Search_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function NavigationSearch_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function Search_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function NavigationSearch_createClass(Constructor, protoProps, staticProps) { if (protoProps) NavigationSearch_defineProperties(Constructor.prototype, protoProps); if (staticProps) NavigationSearch_defineProperties(Constructor, staticProps); return Constructor; }
+function Search_createClass(Constructor, protoProps, staticProps) { if (protoProps) Search_defineProperties(Constructor.prototype, protoProps); if (staticProps) Search_defineProperties(Constructor, staticProps); return Constructor; }
 
-function NavigationSearch_possibleConstructorReturn(self, call) { if (call && (NavigationSearch_typeof(call) === "object" || typeof call === "function")) { return call; } return NavigationSearch_assertThisInitialized(self); }
+function Search_possibleConstructorReturn(self, call) { if (call && (Search_typeof(call) === "object" || typeof call === "function")) { return call; } return Search_assertThisInitialized(self); }
 
-function NavigationSearch_getPrototypeOf(o) { NavigationSearch_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return NavigationSearch_getPrototypeOf(o); }
+function Search_getPrototypeOf(o) { Search_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return Search_getPrototypeOf(o); }
 
-function NavigationSearch_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) NavigationSearch_setPrototypeOf(subClass, superClass); }
+function Search_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) Search_setPrototypeOf(subClass, superClass); }
 
-function NavigationSearch_setPrototypeOf(o, p) { NavigationSearch_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return NavigationSearch_setPrototypeOf(o, p); }
+function Search_setPrototypeOf(o, p) { Search_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return Search_setPrototypeOf(o, p); }
 
-function NavigationSearch_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-
+function Search_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
-var NavigationSearch_NavigationSearch =
+
+
+var Search_Search =
 /*#__PURE__*/
 function (_React$Component) {
-  NavigationSearch_inherits(NavigationSearch, _React$Component);
+  Search_inherits(Search, _React$Component);
 
-  function NavigationSearch(props) {
+  function Search(props) {
     var _this;
 
-    NavigationSearch_classCallCheck(this, NavigationSearch);
+    Search_classCallCheck(this, Search);
 
-    _this = NavigationSearch_possibleConstructorReturn(this, NavigationSearch_getPrototypeOf(NavigationSearch).call(this, props));
+    _this = Search_possibleConstructorReturn(this, Search_getPrototypeOf(Search).call(this, props));
     _this.state = {};
-    _this.handleInputChange = _this.handleInputChange.bind(NavigationSearch_assertThisInitialized(NavigationSearch_assertThisInitialized(_this)));
+    _this.handleInputChange = _this.handleInputChange.bind(Search_assertThisInitialized(Search_assertThisInitialized(_this)));
     return _this;
   }
 
-  NavigationSearch_createClass(NavigationSearch, [{
+  Search_createClass(Search, [{
     key: "handleInputChange",
     value: function handleInputChange(e) {
       var onSearchInput = this.props.onSearchInput;
@@ -1655,23 +1645,23 @@ function (_React$Component) {
           searchResults = _this$props.searchResults,
           onSearchItemClick = _this$props.onSearchItemClick;
       return react_default.a.createElement("div", {
-        className: "coop-nav-search"
+        className: "coop-search"
       }, react_default.a.createElement("input", {
-        className: "coop-nav-search__input",
+        className: "coop-search__input",
         placeholder: "S\xF8g...",
         onChange: this.handleInputChange
       }), react_default.a.createElement("div", {
-        className: "coop-nav-search__results"
+        className: "coop-search__results"
       }, searchResults.map(function (s, i) {
         return react_default.a.createElement("div", {
           key: i,
-          className: "coop-nav-search__section"
+          className: "coop-search__section"
         }, react_default.a.createElement("h4", {
-          className: "coop-nav-search__section-title"
+          className: "coop-search__section-title"
         }, s.title), react_default.a.createElement("div", {
-          className: "coop-nav-search__section-results"
+          className: "coop-search__section-results"
         }, s.results.map(function (r, e) {
-          return react_default.a.createElement(NavigationSearchItem, _extends({
+          return react_default.a.createElement(Search_SearchItem, _extends({
             key: e
           }, r, {
             onSearchItemClick: onSearchItemClick
@@ -1681,10 +1671,13 @@ function (_React$Component) {
     }
   }]);
 
-  return NavigationSearch;
+  return Search;
 }(react_default.a.Component);
 
-/* harmony default export */ var Navigation_NavigationSearch = (NavigationSearch_NavigationSearch);
+/* harmony default export */ var components_Search_Search = (Search_Search);
+// CONCATENATED MODULE: ./src/components/Search/index.js
+
+/* harmony default export */ var components_Search = (components_Search_Search);
 // CONCATENATED MODULE: ./src/components/Navigation/Navigation.js
 function Navigation_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Navigation_typeof = function _typeof(obj) { return typeof obj; }; } else { Navigation_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Navigation_typeof(obj); }
 
@@ -1809,7 +1802,7 @@ function (_React$Component) {
         className: "coop-global-nav__close-wrap",
         onClick: this.hideMobileNav
       }, react_default.a.createElement("img", {
-        src: "examples/times-black.svg",
+        src: "images/times-black.svg",
         className: "coop-global-nav__close-image",
         alt: "Luk"
       })), react_default.a.createElement("ul", {
@@ -1826,12 +1819,12 @@ function (_React$Component) {
       }, react_default.a.createElement("div", {
         className: "coop-site-nav__mobile"
       }, react_default.a.createElement("img", {
-        src: "examples/burger.svg",
+        src: "images/burger.svg",
         alt: "menu",
         className: "coop-site-nav__mobile-toggle",
         onClick: this.showMobileNav
       }), react_default.a.createElement("img", {
-        src: "examples/search.svg",
+        src: "images/search.svg",
         alt: "menu",
         className: "coop-site-nav__mobile-search",
         onClick: this.showMobileSearch
@@ -1844,11 +1837,11 @@ function (_React$Component) {
         className: "coop-site-nav__logo-image"
       })), react_default.a.createElement("div", {
         className: "coop-site-nav__search ".concat(mobileSearchVisibleClass)
-      }, react_default.a.createElement(Navigation_NavigationSearch, this.props), react_default.a.createElement("div", {
+      }, react_default.a.createElement(components_Search, this.props), react_default.a.createElement("div", {
         className: "coop-site-nav__close-wrap",
         onClick: this.hideMobileSearch
       }, react_default.a.createElement("img", {
-        src: "examples/times-black.svg",
+        src: "images/times-black.svg",
         className: "coop-site-nav__close-image",
         alt: "Luk"
       }))), react_default.a.createElement("ul", {
@@ -2009,12 +2002,12 @@ var emitEvent = function emitEvent(eventName) {
 // CONCATENATED MODULE: ./examples/navConfig.js
 /* harmony default export */ var navConfig = ({
   siteLogo: {
-    imageUrl: 'examples/opskrifter-logo.svg',
+    imageUrl: 'images/opskrifter-logo.svg',
     link: '/'
   },
   siteItems: [{
     name: 'Gemte',
-    iconUrl: 'examples/heart.svg',
+    iconUrl: 'images/heart.svg',
     onClick: function onClick() {
       console.log('clicked gemt');
     }
