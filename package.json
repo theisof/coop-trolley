@@ -12,7 +12,7 @@
     "test_ci": "jest",
     "publish_npm": "npm run test_ci && npm publish --access public",
     "deploy": "gh-pages -d examples/dist",
-    "publish_demo": "npm run build && cp -R images examples/dist/images && npm run deploy",
+    "publish_demo": "npm run build && npm run deploy",
     "publish_all": "npm run publish_npm && npm run publish_demo"
   },
   "author": "",

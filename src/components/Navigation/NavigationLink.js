@@ -1,4 +1,5 @@
 import React from 'react'
+import getImagePath from '../../utils/getImagePath'
 
 const NavigationLink = ({ name, link, onClick, iconUrl, className, isCurrent }) => {
   const baseClass = 'coop-nav__link'
@@ -12,7 +13,7 @@ const NavigationLink = ({ name, link, onClick, iconUrl, className, isCurrent }) 
       </span>
 
       { iconUrl &&
-        <img src={iconUrl} className={`${className}-icon`} />
+        <img src={getImagePath(iconUrl)} className={`${className}-icon`} />
       }
     </span>
 

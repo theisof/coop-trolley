@@ -1,12 +1,12 @@
 export default {
   siteLogo: {
-    imageUrl: 'images/opskrifter-logo.svg',
+    image: 'opskrifter-logo.svg',
     link: '/'
   },
   siteItems: [
     {
       name: 'Gemte',
-      iconUrl: 'images/heart.svg',
+      iconUrl: 'heart.svg',
       onClick: () => {
         console.log('clicked gemt')
       }

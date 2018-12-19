@@ -3,6 +3,7 @@ import baseConfig from './baseConfig'
 import NavigationLink from './NavigationLink'
 import Backdrop from '../Backdrop'
 import Search from '../Search'
+import getImagePath from '../../utils/getImagePath'
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -63,7 +64,7 @@ class Navigation extends React.Component {
       <header className={`coop-nav ${mobileNavVisibleClass}`}>
         <div className='coop-global-nav'>
           <div className='coop-global-nav__close-wrap' onClick={this.hideMobileNav}>
-            <img src="images/times-black.svg" className='coop-global-nav__close-image' alt="Luk" />
+            <img src={getImagePath('times-black.svg')} className='coop-global-nav__close-image' alt="Luk" />
           </div>
 
           <ul className='coop-nav__list coop-global-nav__list'>
@@ -78,14 +79,14 @@ class Navigation extends React.Component {
         <div className='coop-site-nav'>
           <div className='coop-site-nav__mobile'>
             <img
-              src='images/burger.svg'
+              src={getImagePath('burger.svg')}
               alt="menu"
               className='coop-site-nav__mobile-toggle'
               onClick={this.showMobileNav}
             />
 
             <img
-              src='images/search.svg'
+              src={getImagePath('search.svg')}
               alt="menu"
               className='coop-site-nav__mobile-search'
               onClick={this.showMobileSearch}
@@ -93,7 +94,7 @@ class Navigation extends React.Component {
           </div>
 
           <a href={siteLogo.link} className='coop-site-nav__logo-wrap'>
-            <img src={siteLogo.imageUrl} alt="logo" className='coop-site-nav__logo-image' />
+            <img src={getImagePath(siteLogo.image)} alt="logo" className='coop-site-nav__logo-image' />
           </a>
 
           <div className={`coop-site-nav__search ${mobileSearchVisibleClass}`}>
@@ -101,7 +102,7 @@ class Navigation extends React.Component {
 
             <div className='coop-site-nav__close-wrap' onClick={this.hideMobileSearch}>
               <img
-                src="images/times-black.svg"
+                src={getImagePath('times-black.svg')}
                 className='coop-site-nav__close-image'
                 alt="Luk"
               />
