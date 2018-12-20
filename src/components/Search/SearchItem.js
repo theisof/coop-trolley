@@ -8,7 +8,7 @@ class SearchItem extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(e) {
+  handleClick() {
     const { onSearchItemClick } = this.props
 
     onSearchItemClick(this.props)

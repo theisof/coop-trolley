@@ -1,5 +1,4 @@
 import React from 'react'
-import { debounce } from 'debounce'
 import baseConfig from './baseConfig'
 import NavigationLink from './NavigationLink'
 import Backdrop from '../Backdrop'
@@ -27,7 +26,7 @@ class Navigation extends React.Component {
   }
 
   handleKeyPress(e) {
-    if(event.keyCode === 27) {
+    if(e.keyCode === 27) {
       this.setState({
         mobileNavVisible: false,
         mobileSearchVisible: false,
@@ -39,27 +38,24 @@ class Navigation extends React.Component {
     const rect = this.siteNav.current.getBoundingClientRect()
     this.setState({ navStart: rect.top + window.scrollY })
 
-    document.addEventListener("scroll", debounce(this.handleScroll, 5), false)
+    document.addEventListener("scroll", this.handleScroll, false)
     document.addEventListener("keydown", this.handleKeyPress, false)
-
   }
 
   componentWillUnmount(){
-    document.removeEventListener("scroll", debounce(this.handleScroll, 5), false)
+    document.removeEventListener("scroll", this.handleScroll, false)
     document.removeEventListener("keydown", this.handleKeyPress, false)
   }
 
   handleScroll() {
-    const { navStart } = this.state
-    const offset = 150
+    const { navStart, isFixed } = this.state
 
     requestAnimationFrame(() => {
-      console.log('set')
-
-
-      this.setState({ isFixed: navStart + offset < window.scrollY })
-
-
+      if ( navStart < window.scrollY && ! isFixed) {
+        this.setState({ isFixed: true })
+      } else if (navStart > window.scrollY && isFixed) {
+        this.setState({ isFixed: false })
+      }
     })
   }
 

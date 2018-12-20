@@ -92,7 +92,17 @@ To only update Github pages run `npm run publish_demo`
 
 Get images from local folder by adding `?local-images` to url
 
-### To do
+## Testing
 
-- Linting strategies
-- Describe testing strategies
+Tests are setup with [Jest](https://jestjs.io/en/) and [Enzyme](https://airbnb.io/enzyme/). Place test files in same folder as tested file with `.test.` in filename. Run locally with `npm run test`. Tests are auto triggered on build.
+
+Use the following approach when testing:
+
+UI:
+- The goal is to eliminate the accidential removal of critical triggers, therefore...
+- Apply smoke tests to key UI actions such as toggle buttons
+- Don't test styling unless it impacts behaviour (like show/hiding a modal)
+- Make snapshots for tested components
+
+Utils:
+- Make unit tests

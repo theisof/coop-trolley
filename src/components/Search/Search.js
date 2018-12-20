@@ -16,7 +16,7 @@ class Search extends React.Component {
   }
 
   render() {
-    const { searchResults, onSearchItemClick } = this.props
+    const { searchResults = [], onSearchItemClick } = this.props
 
     return (
       <div className='coop-search'>
