@@ -1,5 +1,5 @@
 const getImagePath = (image) => {
-  if(window.location.host.indexOf('localhost') > -1) {
+  if(window.location.search.indexOf('local-images') > -1) {
     return `images/${image}`
   }
 

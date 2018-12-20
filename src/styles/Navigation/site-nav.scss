@@ -1,9 +1,11 @@
 .coop-site-nav {
+  height: $site-nav-height;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
   height: $site-nav-height;
+  width: 100%;
 }
 
 .coop-site-nav__logo-wrap {

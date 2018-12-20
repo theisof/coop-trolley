@@ -90,6 +90,8 @@ To publish new version, increment version number in `package.json` and run `npm 
 
 To only update Github pages run `npm run publish_demo`
 
+Get images from local folder by adding `?local-images` to url
+
 ### To do
 
 - Linting strategies
