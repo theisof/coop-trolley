@@ -51,10 +51,15 @@ class Navigation extends React.Component {
 
   handleScroll() {
     const { navStart } = this.state
+    const offset = 150
 
     requestAnimationFrame(() => {
       console.log('set')
-      this.setState({ isFixed: navStart < window.scrollY })
+
+
+      this.setState({ isFixed: navStart + offset < window.scrollY })
+
+
     })
   }
 
@@ -79,26 +84,26 @@ class Navigation extends React.Component {
     const { mobileNavVisible, mobileSearchVisible, isFixed } = this.state
     const mobileNavVisibleClass = mobileNavVisible ? 'coop-nav--mobile-visible' : ''
     const mobileSearchVisibleClass = mobileSearchVisible ? 'coop-site-nav__search--mobile-visible' : ''
-    const isFixedClass = isFixed ? 'coop-nav__sticky--is-fixed' : ''
+    const isFixedClass = isFixed ? 'coop-site-nav__inner--is-fixed' : ''
 
     return (
       <header className={`coop-nav ${mobileNavVisibleClass}`}>
-        <div className={`coop-nav__sticky ${isFixedClass}`}>
-          <div className='coop-global-nav'>
-            <div className='coop-global-nav__close-wrap' onClick={this.hideMobileNav}>
-              <img src={getImagePath('times-black.svg')} className='coop-global-nav__close-image' alt="Luk" />
-            </div>
-
-            <ul className='coop-nav__list coop-global-nav__list'>
-              { globalItems.map((item, i) =>
-                <li className='coop-global-nav__item' key={i}>
-                  <NavigationLink {...item} className='coop-global-nav__link' />
-                </li>
-              )}
-            </ul>
+        <div className='coop-global-nav'>
+          <div className='coop-global-nav__close-wrap' onClick={this.hideMobileNav}>
+            <img src={getImagePath('times-black.svg')} className='coop-global-nav__close-image' alt="Luk" />
           </div>
 
-          <div className='coop-site-nav' ref={this.siteNav}>
+          <ul className='coop-nav__list coop-global-nav__list'>
+            { globalItems.map((item, i) =>
+              <li className='coop-global-nav__item' key={i}>
+                <NavigationLink {...item} className='coop-global-nav__link' />
+              </li>
+            )}
+          </ul>
+        </div>
+
+        <div className='coop-site-nav' ref={this.siteNav}>
+          <div className={`coop-site-nav__inner  ${isFixedClass}`}>
             <div className='coop-site-nav__mobile'>
               <img
                 src={getImagePath('burger.svg')}
