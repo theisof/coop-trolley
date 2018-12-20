@@ -1,0 +1,53 @@
+.coop-search {
+  position: relative;
+  font-family: $font-standard;
+}
+
+.coop-search__input {
+  width: 100%;
+  height: 35px;
+  padding: 0 15px;
+  font-family: $font-standard;
+  border: 1px solid $color-gray-light;
+  font-size: 12px;
+
+  &:focus {
+    outline: 0;
+    border: 1px solid $color-gray-dark;
+  }
+}
+
+.coop-search__results {
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.coop-search__section-title {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #eee;
+  font-family: $font-display;
+}
+
+@media (max-width: $breakpoint-sm) {
+  .coop-search {
+    height: $site-nav-height;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 0;
+  }
+
+  .coop-search__input {
+    height: 100%;
+    font-size: 16px;
+
+    &,
+    &:focus {
+      border: none;
+    }
+  }
+}

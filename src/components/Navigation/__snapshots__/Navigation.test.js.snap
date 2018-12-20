@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation renders correctly 1`] = `
+<Navigation>
+  <header
+    className="coop-nav "
+  >
+    <div
+      className="coop-global-nav"
+    >
+      <div
+        className="coop-global-nav__close-wrap"
+        onClick={[Function]}
+      >
+        <img
+          alt="Luk"
+          className="coop-global-nav__close-image"
+          src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/times-black.svg"
+        />
+      </div>
+      <ul
+        className="coop-nav__list coop-global-nav__list"
+      >
+        <li
+          className="coop-global-nav__item"
+          key="0"
+        >
+          <NavigationLink
+            className="coop-global-nav__link"
+            link="https://coop.dk/kundeservice"
+            name="Kundeservice"
+          >
+            <a
+              className="coop-nav__link  coop-global-nav__link"
+              href="https://coop.dk/kundeservice"
+            >
+              <span>
+                <span
+                  className="coop-global-nav__link-name"
+                >
+                  Kundeservice
+                </span>
+              </span>
+            </a>
+          </NavigationLink>
+        </li>
+        <li
+          className="coop-global-nav__item"
+          key="1"
+        >
+          <NavigationLink
+            className="coop-global-nav__link"
+            link="https://tilmeld.coop.dk/standard/forside"
+            name="Bliv medlem"
+          >
+            <a
+              className="coop-nav__link  coop-global-nav__link"
+              href="https://tilmeld.coop.dk/standard/forside"
+            >
+              <span>
+                <span
+                  className="coop-global-nav__link-name"
+                >
+                  Bliv medlem
+                </span>
+              </span>
+            </a>
+          </NavigationLink>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="coop-site-nav"
+    >
+      <div
+        className="coop-site-nav__inner  "
+      >
+        <div
+          className="coop-site-nav__mobile"
+        >
+          <img
+            alt="menu"
+            className="coop-site-nav__mobile-toggle"
+            onClick={[Function]}
+            src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/burger.svg"
+          />
+          <img
+            alt="menu"
+            className="coop-site-nav__mobile-search"
+            onClick={[Function]}
+            src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/search.svg"
+          />
+        </div>
+        <a
+          className="coop-site-nav__logo-wrap"
+          href="/"
+        >
+          <img
+            alt="logo"
+            className="coop-site-nav__logo-image"
+            src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/undefined"
+          />
+        </a>
+        <div
+          className="coop-site-nav__search "
+        >
+          <Search>
+            <div
+              className="coop-search"
+            >
+              <input
+                className="coop-search__input"
+                onChange={[Function]}
+                placeholder="Søg..."
+              />
+              <div
+                className="coop-search__results"
+              />
+            </div>
+          </Search>
+          <div
+            className="coop-site-nav__close-wrap"
+            onClick={[Function]}
+          >
+            <img
+              alt="Luk"
+              className="coop-site-nav__close-image"
+              src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/times-black.svg"
+            />
+          </div>
+        </div>
+        <ul
+          className="coop-nav__list coop-site-nav__list"
+        />
+      </div>
+    </div>
+    <div
+      className="coop-context-nav"
+    >
+      <ul
+        className="coop-nav__list coop-context-nav__list"
+      />
+    </div>
+    <Backdrop
+      onClose={[Function]}
+      visible={false}
+    >
+      <div
+        className="coop-backdrop "
+        onClick={[Function]}
+        style={
+          Object {
+            "zIndex": 100000,
+          }
+        }
+      />
+    </Backdrop>
+  </header>
+</Navigation>
+`;

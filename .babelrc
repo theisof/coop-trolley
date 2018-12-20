@@ -1,3 +1,18 @@
 {
-  "presets": ["env", "react"]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": { "browsers": ["last 10 versions", "ie >= 9"] },
+        "shippedProposals": true,
+        "modules": false
+      }
+    ],
+    "@babel/react"
+  ],
+  "env": {
+    "test" : {
+      "presets": [["@babel/preset-env", { "shippedProposals": true }], "@babel/react"]
+    }
+  }
 }

@@ -53,7 +53,7 @@ export const getAllDataFromElement = element => {
   const attributes = [...element.attributes]
   let data = {}
 
-  attributes.forEach((a, i) => {
+  attributes.forEach((a) => {
     if (a.nodeName.substr(0, 4) === 'data') {
       let value = a.nodeValue
       let name = a.nodeName.replace('data-', '')

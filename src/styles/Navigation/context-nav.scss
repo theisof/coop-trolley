@@ -1,0 +1,51 @@
+.coop-context-nav {
+  background-color: $color-gray-dark;
+}
+
+.coop-context-nav__list {
+  display: flex;
+  justify-content: center;
+}
+
+.coop-context-nav__link {
+  padding: 15px 20px;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+
+  &,
+  &:visited,
+  &:focus {
+    color: #fff;
+  }
+}
+
+.coop-context-nav__link--is-current {
+  color: $color-primary;
+  font-weight: bold;
+}
+
+@media (max-width: $breakpoint-sm) {
+  .coop-context-nav {
+    position: fixed;
+    top: $site-nav-height;
+    left: 0;
+    height: 100%;
+    width: $mobile-width;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: $z-index-backdrop + 1;
+    box-shadow: 3px 0px 10px 0px rgba(0,0,0,0.35);
+  }
+
+  .coop-context-nav__list {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .coop-context-nav__link {
+    padding: 20px 25px;
+    font-size: 16px;
+    border-bottom: 1px solid lighten($color-gray-dark, 5%);
+  }
+}

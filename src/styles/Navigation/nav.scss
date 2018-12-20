@@ -1,0 +1,27 @@
+.coop-nav {
+  font-family: $font-display;
+}
+
+.coop-nav__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  padding: 5px 25px;
+}
+
+.coop-nav__link {
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+
+  &,
+  &:visited,
+  &:focus {
+    color: #000;
+  }
+
+  &:hover,
+  &:active {
+    opacity: 0.7;
+  }
+}

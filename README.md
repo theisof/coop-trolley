@@ -69,6 +69,10 @@ Pull from subtree, run `git subtree pull --prefix path/to/folder coop-trolley ma
 
 Load fonts manually. Opens Sans and Roboto Slab can be loaded from [Google Fonts](https://fonts.google.com/selection?query=open&selection.family=Open+Sans:400,400i,600,600i,800|Roboto+Slab:400,700).
 
+```html
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i,800|Roboto+Slab:400,700" rel="stylesheet">
+```
+
 Standard: 'MarkOT' or 'Open Sans'  \
 Display: 'Soho Std' or 'Roboto Slab'
 
@@ -84,7 +88,21 @@ Run local server on `http://localhost:3001` with:
 
 To publish new version, increment version number in `package.json` and run `npm run publish_all`. Will update npm and [Github demo page](https://theisof.github.io/coop-trolley/).
 
-### To do
+To only update Github pages run `npm run publish_demo`
 
-- Linting strategies
-- Describe testing strategies
+Get images from local folder by adding `?local-images` to url
+
+## Testing
+
+Tests are setup with [Jest](https://jestjs.io/en/) and [Enzyme](https://airbnb.io/enzyme/). Place test files in same folder as tested file with `.test.` in filename. Run locally with `npm run test`. Tests are auto triggered on build.
+
+Use the following approach when testing:
+
+UI:
+- The goal is to eliminate the accidential removal of critical triggers, therefore...
+- Apply smoke tests to key UI actions such as toggle buttons
+- Don't test styling unless it impacts behaviour (like show/hiding a modal)
+- Make snapshots for tested components
+
+Utils:
+- Make unit tests
