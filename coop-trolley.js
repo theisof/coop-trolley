@@ -1380,7 +1380,7 @@ var Button_Button = function Button(_ref) {
 });
 // CONCATENATED MODULE: ./src/utils/getImagePath/getImagePath.js
 var getImagePath = function getImagePath(image) {
-  if (window.location.host.indexOf('localhost') > -1) {
+  if (window.location.search.indexOf('local-images') > -1) {
     return "images/".concat(image);
   }
 
@@ -1579,7 +1579,7 @@ function (_React$Component) {
 
   SearchItem_createClass(SearchItem, [{
     key: "handleClick",
-    value: function handleClick(e) {
+    value: function handleClick() {
       var onSearchItemClick = this.props.onSearchItemClick;
       onSearchItemClick(this.props);
     }
@@ -1656,7 +1656,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          searchResults = _this$props.searchResults,
+          _this$props$searchRes = _this$props.searchResults,
+          searchResults = _this$props$searchRes === void 0 ? [] : _this$props$searchRes,
           onSearchItemClick = _this$props.onSearchItemClick;
       return react_default.a.createElement("div", {
         className: "coop-search"
@@ -1737,20 +1738,24 @@ function (_React$Component) {
     _this = Navigation_possibleConstructorReturn(this, Navigation_getPrototypeOf(Navigation).call(this, props));
     _this.state = {
       mobileNavVisible: false,
-      mobileSearchVisible: false
+      mobileSearchVisible: false,
+      navStart: 0,
+      isFixed: false
     };
     _this.showMobileNav = _this.showMobileNav.bind(Navigation_assertThisInitialized(Navigation_assertThisInitialized(_this)));
     _this.hideMobileNav = _this.hideMobileNav.bind(Navigation_assertThisInitialized(Navigation_assertThisInitialized(_this)));
     _this.showMobileSearch = _this.showMobileSearch.bind(Navigation_assertThisInitialized(Navigation_assertThisInitialized(_this)));
     _this.hideMobileSearch = _this.hideMobileSearch.bind(Navigation_assertThisInitialized(Navigation_assertThisInitialized(_this)));
     _this.handleKeyPress = _this.handleKeyPress.bind(Navigation_assertThisInitialized(Navigation_assertThisInitialized(_this)));
+    _this.handleScroll = _this.handleScroll.bind(Navigation_assertThisInitialized(Navigation_assertThisInitialized(_this)));
+    _this.siteNav = react_default.a.createRef();
     return _this;
   }
 
   Navigation_createClass(Navigation, [{
     key: "handleKeyPress",
     value: function handleKeyPress(e) {
-      if (event.keyCode === 27) {
+      if (e.keyCode === 27) {
         this.setState({
           mobileNavVisible: false,
           mobileSearchVisible: false
@@ -1760,12 +1765,38 @@ function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      var rect = this.siteNav.current.getBoundingClientRect();
+      this.setState({
+        navStart: rect.top + window.scrollY
+      });
+      document.addEventListener("scroll", this.handleScroll, false);
       document.addEventListener("keydown", this.handleKeyPress, false);
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
+      document.removeEventListener("scroll", this.handleScroll, false);
       document.removeEventListener("keydown", this.handleKeyPress, false);
+    }
+  }, {
+    key: "handleScroll",
+    value: function handleScroll() {
+      var _this2 = this;
+
+      var _this$state = this.state,
+          navStart = _this$state.navStart,
+          isFixed = _this$state.isFixed;
+      requestAnimationFrame(function () {
+        if (navStart < window.scrollY && !isFixed) {
+          _this2.setState({
+            isFixed: true
+          });
+        } else if (navStart > window.scrollY && isFixed) {
+          _this2.setState({
+            isFixed: false
+          });
+        }
+      });
     }
   }, {
     key: "showMobileNav",
@@ -1804,11 +1835,13 @@ function (_React$Component) {
           contextItems = _baseConfig$this$prop.contextItems,
           siteLogo = _baseConfig$this$prop.siteLogo;
 
-      var _this$state = this.state,
-          mobileNavVisible = _this$state.mobileNavVisible,
-          mobileSearchVisible = _this$state.mobileSearchVisible;
+      var _this$state2 = this.state,
+          mobileNavVisible = _this$state2.mobileNavVisible,
+          mobileSearchVisible = _this$state2.mobileSearchVisible,
+          isFixed = _this$state2.isFixed;
       var mobileNavVisibleClass = mobileNavVisible ? 'coop-nav--mobile-visible' : '';
       var mobileSearchVisibleClass = mobileSearchVisible ? 'coop-site-nav__search--mobile-visible' : '';
+      var isFixedClass = isFixed ? 'coop-site-nav__inner--is-fixed' : '';
       return react_default.a.createElement("header", {
         className: "coop-nav ".concat(mobileNavVisibleClass)
       }, react_default.a.createElement("div", {
@@ -1830,7 +1863,10 @@ function (_React$Component) {
           className: "coop-global-nav__link"
         })));
       }))), react_default.a.createElement("div", {
-        className: "coop-site-nav"
+        className: "coop-site-nav",
+        ref: this.siteNav
+      }, react_default.a.createElement("div", {
+        className: "coop-site-nav__inner  ".concat(isFixedClass)
       }, react_default.a.createElement("div", {
         className: "coop-site-nav__mobile"
       }, react_default.a.createElement("img", {
@@ -1868,7 +1904,7 @@ function (_React$Component) {
         }, react_default.a.createElement(Navigation_NavigationLink, Navigation_extends({}, item, {
           className: "coop-site-nav__link"
         })));
-      }))), react_default.a.createElement("div", {
+      })))), react_default.a.createElement("div", {
         className: "coop-context-nav"
       }, react_default.a.createElement("ul", {
         className: "coop-nav__list coop-context-nav__list"
@@ -1949,7 +1985,7 @@ var getAllDataFromElement = function getAllDataFromElement(element) {
   var attributes = _toConsumableArray(element.attributes);
 
   var data = {};
-  attributes.forEach(function (a, i) {
+  attributes.forEach(function (a) {
     if (a.nodeName.substr(0, 4) === 'data') {
       var value = a.nodeValue;
       var name = a.nodeName.replace('data-', '');
@@ -1984,15 +2020,16 @@ var convertCamelCase = function convertCamelCase(str) {
 // CONCATENATED MODULE: ./src/utils/emitEvent/emitEvent.js
 var emitEvent = function emitEvent(eventName) {
   var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  var event;
 
   if (typeof window.CustomEvent === "function") {
-    var event = new CustomEvent(eventName, {
+    event = new CustomEvent(eventName, {
       detail: {
         value: value
       }
     });
   } else {
-    var event = document.createEvent('CustomEvent');
+    event = document.createEvent('CustomEvent');
     event.initCustomEvent(eventName, true, true, {
       value: value
     });
