@@ -5,18 +5,23 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {}
+    this.state = {
+      searchText: ''
+    }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   handleInputChange(e) {
     const { onSearchInput } = this.props
+    const value = e.target.value
 
-    onSearchInput(e.target.value)
+    onSearchInput(value)
+    this.setState({ searchText: value })
   }
 
   render() {
     const { searchResults = [], onSearchItemClick } = this.props
+    const { searchText } = this.state
 
     return (
       <div className='coop-search'>
@@ -24,6 +29,7 @@ class Search extends React.Component {
           className='coop-search__input'
           placeholder="Søg..."
           onChange={this.handleInputChange}
+          value={searchText}
         />
 
         <div className='coop-search__results'>

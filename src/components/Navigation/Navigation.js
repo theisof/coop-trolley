@@ -73,11 +73,13 @@ class Navigation extends React.Component {
 
   hideMobileSearch () {
     this.setState({ mobileSearchVisible: false })
+    this.props.onSearchReset()
   }
 
   render() {
-    const { globalItems, siteItems, contextItems, siteLogo  } = { ...baseConfig, ...this.props.config }
+    const { globalItems, siteItems, contextItems, siteLogo } = { ...baseConfig, ...this.props.config }
     const { mobileNavVisible, mobileSearchVisible, isFixed } = this.state
+    const { searchResults, onSearchReset } = this.props
     const mobileNavVisibleClass = mobileNavVisible ? 'coop-nav--mobile-visible' : ''
     const mobileSearchVisibleClass = mobileSearchVisible ? 'coop-site-nav__search--mobile-visible' : ''
     const isFixedClass = isFixed ? 'coop-site-nav__inner--is-fixed' : ''
@@ -139,6 +141,12 @@ class Navigation extends React.Component {
                 </li>
               )}
             </ul>
+
+            <Backdrop
+              visible={searchResults.length}
+              onClose={onSearchReset}
+              zIndex={10}
+            />
           </div>
         </div>
 
