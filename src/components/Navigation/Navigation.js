@@ -19,7 +19,7 @@ class Navigation extends React.Component {
     this.showMobileNav = this.showMobileNav.bind(this)
     this.hideMobileNav = this.hideMobileNav.bind(this)
     this.showMobileSearch = this.showMobileSearch.bind(this)
-    this.hideMobileSearch = this.hideMobileSearch.bind(this)
+    this.hideSearch = this.hideSearch.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleScroll = this.handleScroll.bind(this)
     this.siteNav = React.createRef()
@@ -49,18 +49,18 @@ class Navigation extends React.Component {
 
   handleScroll() {
     const { navStart, isFixed } = this.state
+    const bodyOffset = parseInt(document.body.style.top, 10) || 0 // top offset will be different from 0 if a modal is open
 
-    requestAnimationFrame(() => {
-      if ( navStart < window.scrollY && ! isFixed) {
-        this.setState({ isFixed: true })
-      } else if (navStart > window.scrollY && isFixed) {
-        this.setState({ isFixed: false })
-      }
-    })
+    if (navStart < window.scrollY && ! isFixed) {
+      this.setState({ isFixed: true })
+    } else if (navStart > window.scrollY && bodyOffset === 0 && isFixed) {
+      this.setState({ isFixed: false })
+    }
   }
 
   showMobileNav () {
     this.setState({ mobileNavVisible: true })
+    document.getElementById('coop-search__input').focus()
   }
 
   hideMobileNav () {
@@ -71,7 +71,7 @@ class Navigation extends React.Component {
     this.setState({ mobileSearchVisible: true })
   }
 
-  hideMobileSearch () {
+  hideSearch () {
     this.setState({ mobileSearchVisible: false })
     this.props.onSearchReset()
   }
@@ -79,7 +79,6 @@ class Navigation extends React.Component {
   render() {
     const { globalItems, siteItems, contextItems, siteLogo } = { ...baseConfig, ...this.props.config }
     const { mobileNavVisible, mobileSearchVisible, isFixed } = this.state
-    const { searchResults, onSearchReset } = this.props
     const mobileNavVisibleClass = mobileNavVisible ? 'coop-nav--mobile-visible' : ''
     const mobileSearchVisibleClass = mobileSearchVisible ? 'coop-site-nav__search--mobile-visible' : ''
     const isFixedClass = isFixed ? 'coop-site-nav__inner--is-fixed' : ''
@@ -94,7 +93,7 @@ class Navigation extends React.Component {
           <ul className='coop-nav__list coop-global-nav__list'>
             { globalItems.map((item, i) =>
               <li className='coop-global-nav__item' key={i}>
-                <NavigationLink {...item} className='coop-global-nav__link' />
+                <NavigationLink {...item} className='coop-global-nav__link' isBlank />
               </li>
             )}
           </ul>
@@ -112,7 +111,7 @@ class Navigation extends React.Component {
 
               <img
                 src={getImagePath('search.svg')}
-                alt="menu"
+                alt="søg"
                 className='coop-site-nav__mobile-search'
                 onClick={this.showMobileSearch}
               />
@@ -123,15 +122,11 @@ class Navigation extends React.Component {
             </a>
 
             <div className={`coop-site-nav__search ${mobileSearchVisibleClass}`}>
-              <Search {...this.props} />
-
-              <div className='coop-site-nav__close-wrap' onClick={this.hideMobileSearch}>
-                <img
-                  src={getImagePath('times-black.svg')}
-                  className='coop-site-nav__close-image'
-                  alt="Luk"
-                />
-              </div>
+              <Search
+                {...this.props}
+                hideSearch={this.hideSearch}
+                mobileSearchVisible={mobileSearchVisible}
+              />
             </div>
 
             <ul className='coop-nav__list coop-site-nav__list'>
@@ -141,12 +136,6 @@ class Navigation extends React.Component {
                 </li>
               )}
             </ul>
-
-            <Backdrop
-              visible={searchResults.length}
-              onClose={onSearchReset}
-              zIndex={10}
-            />
           </div>
         </div>
 
