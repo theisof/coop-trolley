@@ -62,7 +62,6 @@ class Backdrop extends Component {
     const invisibleClass = (! visible && this.state.initialLoad) ? 'coop-backdrop--invisible' : ''
     const visibilityClass = visible ? 'coop-backdrop--visible' : invisibleClass
 
-
     return (
       <div
         style={{ zIndex }}

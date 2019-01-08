@@ -63,7 +63,7 @@ class Search extends React.Component {
     const { mobileSearchVisible } = this.props
 
     if (prevProps.mobileSearchVisible !==  mobileSearchVisible && mobileSearchVisible ) {
-      this.searchInput.current.focus()
+      this.searchInput && this.searchInput.current.focus()
     }
   }
 
@@ -72,7 +72,7 @@ class Search extends React.Component {
     const goUp = () => {
       e.preventDefault()
       selected > 0 && this.setState({ selected: selected -1 })
-      selected === 1 && this.searchInput.current.focus()
+      selected === 1 && this.searchInput && this.searchInput.current.focus()
     }
 
     const goDown = () => {
@@ -125,6 +125,7 @@ class Search extends React.Component {
     const { onSearchItemClick, isSearching, searchFailed } = this.props
     const { searchText, selected, searchResults, hasRequired, didSearch } = this.state
     const clearWrapClass = searchText.length ? 'coop-search__clear-wrap--has-input' : ''
+    const maxHeightStyle = window.innerWidth < 768 ? { maxHeight: window.innerHeight - 60 } : {}
 
     return (
       <Fragment>
@@ -158,7 +159,7 @@ class Search extends React.Component {
             />
           }
 
-          <div className='coop-search__results'>
+          <div className='coop-search__results' style={maxHeightStyle}>
             { didSearch && ! hasRequired && ! searchFailed &&
               <div className='coop-search__fallback'>Ingen resultater</div>
             }
@@ -196,7 +197,7 @@ class Search extends React.Component {
         </div>
 
         <Backdrop
-          visible={searchResults.length}
+          visible={searchResults.length > 0}
           onClose={this.hideSearch}
         />
       </Fragment>

@@ -60,7 +60,6 @@ class Navigation extends React.Component {
 
   showMobileNav () {
     this.setState({ mobileNavVisible: true })
-    document.getElementById('coop-search__input').focus()
   }
 
   hideMobileNav () {
@@ -87,7 +86,11 @@ class Navigation extends React.Component {
       <header className={`coop-nav ${mobileNavVisibleClass}`}>
         <div className='coop-global-nav'>
           <div className='coop-global-nav__close-wrap' onClick={this.hideMobileNav}>
-            <img src={getImagePath('times-black.svg')} className='coop-global-nav__close-image' alt="Luk" />
+            <img
+              src={getImagePath('times-black.svg')}
+              className='coop-global-nav__close-image'
+              alt="Luk"
+            />
           </div>
 
           <ul className='coop-nav__list coop-global-nav__list'>

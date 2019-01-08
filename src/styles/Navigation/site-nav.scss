@@ -100,12 +100,14 @@
     position: absolute;
     right: 15px;
     padding: 0;
+    top: 18px;
   }
 
   .coop-site-nav__mobile {
     display: flex;
     position: absolute;
     left: 15px;
+    top: 6px;
   }
 
   .coop-site-nav__link-icon {
@@ -115,6 +117,7 @@
   .coop-site-nav__mobile-toggle,
   .coop-site-nav__mobile-search {
     width: 25px;
+    height: 48px;
     margin-right: 25px;
   }
 }
