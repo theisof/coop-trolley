@@ -19,6 +19,7 @@ exports[`Search renders correctly 1`] = `
     />
     <div
       className="coop-search__results"
+      style={Object {}}
     />
     <div
       className="coop-search__clear-wrap "
@@ -33,7 +34,7 @@ exports[`Search renders correctly 1`] = `
   </div>
   <Backdrop
     onClose={[Function]}
-    visible={0}
+    visible={false}
   />
 </Fragment>
 `;
