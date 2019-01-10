@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-window.openCoopBackdrops = 0
+window.openCoopBackdrops = window.openCoopBackdrops || 0
 
 class Backdrop extends Component {
   constructor(props) {
