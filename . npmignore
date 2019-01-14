@@ -3,6 +3,7 @@ examples
 build
 .babelrc
 .gitignore
+.eslintrc
 webpack.config.js
 postcss.config.js
 jest.config.js

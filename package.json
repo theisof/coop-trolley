@@ -1,6 +1,6 @@
 {
   "name": "@coop/trolley",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -23,12 +23,12 @@
     "reset-css": "^4.0.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "@frontify/frontify-api": "^0.3.1",
     "autoprefixer": "^9.4.2",
-    "babel-cli": "^6.26.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^7.1.5",
