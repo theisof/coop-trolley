@@ -27,12 +27,14 @@ exports[`Navigation renders correctly 1`] = `
         >
           <NavigationLink
             className="coop-global-nav__link"
+            isBlank={true}
             link="https://coop.dk/kundeservice"
             name="Kundeservice"
           >
             <a
               className="coop-nav__link  coop-global-nav__link"
               href="https://coop.dk/kundeservice"
+              target="_blank"
             >
               <span>
                 <span
@@ -50,12 +52,14 @@ exports[`Navigation renders correctly 1`] = `
         >
           <NavigationLink
             className="coop-global-nav__link"
+            isBlank={true}
             link="https://tilmeld.coop.dk/standard/forside"
             name="Bliv medlem"
           >
             <a
               className="coop-nav__link  coop-global-nav__link"
               href="https://tilmeld.coop.dk/standard/forside"
+              target="_blank"
             >
               <span>
                 <span
@@ -85,7 +89,7 @@ exports[`Navigation renders correctly 1`] = `
             src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/burger.svg"
           />
           <img
-            alt="menu"
+            alt="søg"
             className="coop-site-nav__mobile-search"
             onClick={[Function]}
             src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/search.svg"
@@ -104,30 +108,55 @@ exports[`Navigation renders correctly 1`] = `
         <div
           className="coop-site-nav__search "
         >
-          <Search>
+          <Search
+            hideSearch={[Function]}
+            mobileSearchVisible={false}
+          >
             <div
               className="coop-search"
             >
+              <img
+                alt="søg"
+                className="coop-search__icon"
+                src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/search.svg"
+              />
               <input
                 className="coop-search__input"
+                id="coop-search__input"
                 onChange={[Function]}
                 placeholder="Søg..."
+                value=""
               />
               <div
                 className="coop-search__results"
+                style={Object {}}
               />
+              <div
+                className="coop-search__clear-wrap "
+                onClick={[Function]}
+              >
+                <img
+                  alt="Luk"
+                  className="coop-search__clear-image"
+                  src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/times-black.svg"
+                />
+              </div>
             </div>
+            <Backdrop
+              onClose={[Function]}
+              visible={false}
+            >
+              <div
+                className="coop-backdrop "
+                onClick={[Function]}
+                style={
+                  Object {
+                    "zIndex": 100000,
+                  }
+                }
+              />
+            </Backdrop>
           </Search>
-          <div
-            className="coop-site-nav__close-wrap"
-            onClick={[Function]}
-          >
-            <img
-              alt="Luk"
-              className="coop-site-nav__close-image"
-              src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/times-black.svg"
-            />
-          </div>
         </div>
         <ul
           className="coop-nav__list coop-site-nav__list"

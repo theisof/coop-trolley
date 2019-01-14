@@ -1,11 +1,13 @@
 .coop-search__item {
   display: flex;
   align-items: center;
-  padding: 7px;
+  padding: 5px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
 
   &,
+  &:hover,
+  &:active,
   &:focus,
   &:visited {
     color: #000;
@@ -21,14 +23,34 @@
   }
 }
 
+.coop-search__item--is-selected {
+  background-color: #555;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    color: #fff;
+  }
+}
+
+.coop-search__fallback {
+  font-size: 15px;
+  padding: 35px 15px;
+  text-align: center;
+  color: #555;
+}
+
 .coop-search__thumbnail {
-  height: 50px;
+  height: 35px;
   width: auto;
+  max-width: 80px;
   margin: 2px 10px 2px 5px;
 }
 
 .coop-search__name {
-  padding: 5px;
-  font-size: 14px;
+  padding: 3px;
+  font-size: 12px;
   line-height: 1.4;
 }

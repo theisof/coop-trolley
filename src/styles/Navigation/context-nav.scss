@@ -1,5 +1,6 @@
 .coop-context-nav {
   background-color: $color-gray-dark;
+  height: 60px;
 }
 
 .coop-context-nav__list {
@@ -17,11 +18,23 @@
   &:focus {
     color: #fff;
   }
+
+  &:hover,
+  &:active {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 .coop-context-nav__link--is-current {
-  color: $color-primary;
-  font-weight: bold;
+  &,
+  &:visited,
+  &:focus,
+  &:hover,
+  &:active {
+    color: $color-primary;
+    font-weight: bold;
+  }
 }
 
 @media (max-width: $breakpoint-sm) {

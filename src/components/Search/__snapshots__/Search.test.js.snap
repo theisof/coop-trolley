@@ -1,16 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search renders correctly 1`] = `
-<div
-  className="coop-search"
->
-  <input
-    className="coop-search__input"
-    onChange={[Function]}
-    placeholder="Søg..."
-  />
+<Fragment>
   <div
-    className="coop-search__results"
+    className="coop-search"
+  >
+    <img
+      alt="søg"
+      className="coop-search__icon"
+      src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/search.svg"
+    />
+    <input
+      className="coop-search__input"
+      id="coop-search__input"
+      onChange={[Function]}
+      placeholder="Søg..."
+      value=""
+    />
+    <div
+      className="coop-search__results"
+      style={Object {}}
+    />
+    <div
+      className="coop-search__clear-wrap "
+      onClick={[Function]}
+    >
+      <img
+        alt="Luk"
+        className="coop-search__clear-image"
+        src="https://cdn.jsdelivr.net/gh/theisof/coop-trolley@2.0.0/images/times-black.svg"
+      />
+    </div>
+  </div>
+  <Backdrop
+    onClose={[Function]}
+    visible={false}
   />
-</div>
+</Fragment>
 `;

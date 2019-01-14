@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-window.openCoopBackdrops = 0
+window.openCoopBackdrops = window.openCoopBackdrops || 0
 
 class Backdrop extends Component {
   constructor(props) {
@@ -61,7 +61,6 @@ class Backdrop extends Component {
     const { visible, onClose, zIndex = 100000 } = this.props
     const invisibleClass = (! visible && this.state.initialLoad) ? 'coop-backdrop--invisible' : ''
     const visibilityClass = visible ? 'coop-backdrop--visible' : invisibleClass
-
 
     return (
       <div
