@@ -131,13 +131,13 @@ class Search extends React.Component {
 
   hideSearch() {
     this.props.hideSearch()
-    this.setState({ searchText: '', selected: 0 })
+    this.setState({ searchText: '', selected: 0, isActive: false })
   }
 
   render() {
     const { onSearchItemClick, isSearching, searchFailed } = this.props
     const { searchText, selected, searchResults, hasRequired, didSearch, isActive } = this.state
-    const clearWrapClass = searchText.length ? 'coop-search__clear-wrap--has-input' : ''
+    const clearWrapClass = isActive ? 'coop-search__clear-wrap--has-input' : ''
     const maxHeightStyle = window.innerWidth < 768 ? { maxHeight: window.innerHeight - 60 } : {}
 
     return (
@@ -153,6 +153,7 @@ class Search extends React.Component {
             id='coop-search__input'
             className='coop-search__input'
             placeholder="Søg..."
+            onClick={this.handleInputChange}
             onChange={this.handleInputChange}
             onBlur={this.handleBlur}
             value={searchText}
