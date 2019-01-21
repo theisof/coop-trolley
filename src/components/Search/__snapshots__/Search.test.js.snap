@@ -13,13 +13,11 @@ exports[`Search renders correctly 1`] = `
     <input
       className="coop-search__input"
       id="coop-search__input"
+      onBlur={[Function]}
       onChange={[Function]}
+      onClick={[Function]}
       placeholder="Søg..."
       value=""
-    />
-    <div
-      className="coop-search__results"
-      style={Object {}}
     />
     <div
       className="coop-search__clear-wrap "
