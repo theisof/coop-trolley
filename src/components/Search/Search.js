@@ -16,9 +16,9 @@ class Search extends React.Component {
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.hideSearch = this.hideSearch.bind(this)
+    this.resetSearch = this.resetSearch.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
-    this.handleBlur = this.handleBlur.bind(this)
+    this.hideSearch = this.hideSearch.bind(this)
     this.searchInput = React.createRef()
   }
 
@@ -69,12 +69,6 @@ class Search extends React.Component {
     }
   }
 
-  handleBlur() {
-    if (this.state.selected === 0) {
-      this.setState({ isActive: false })
-    }
-  }
-
   handleKeyPress(e) {
     const { selected, searchResults, count, searchText, isActive } = this.state
     const goUp = () => {
@@ -92,14 +86,14 @@ class Search extends React.Component {
       switch(e.key) {
         case 'Enter':
           if (window.location.href.indexOf('/soeg') > -1) {
-            this.setState({ isActive: false })
+            this.hideSearch()
           } else {
             window.location.href = `https://opskrifter.secure:5002/soeg?q=${encodeURI(searchText)}`
           }
           break
 
         case 'Escape':
-          this.hideSearch()
+          this.resetSearch()
           break
 
         case 'ArrowDown':
@@ -129,9 +123,13 @@ class Search extends React.Component {
     }, 350)
   }
 
-  hideSearch() {
-    this.props.hideSearch()
+  resetSearch() {
+    this.props.resetSearch()
     this.setState({ searchText: '', selected: 0, isActive: false })
+  }
+
+  hideSearch() {
+    this.setState({ isActive: false })
   }
 
   render() {
@@ -155,7 +153,6 @@ class Search extends React.Component {
             placeholder="Søg..."
             onClick={this.handleInputChange}
             onChange={this.handleInputChange}
-            onBlur={this.handleBlur}
             value={searchText}
             ref={this.searchInput}
           />
@@ -206,7 +203,7 @@ class Search extends React.Component {
             </Fragment>
           }
 
-          <div className={`coop-search__clear-wrap ${clearWrapClass}`} onClick={this.hideSearch}>
+          <div className={`coop-search__clear-wrap ${clearWrapClass}`} onClick={this.resetSearch}>
             <img
               src={getImagePath('times-black.svg')}
               className='coop-search__clear-image'
