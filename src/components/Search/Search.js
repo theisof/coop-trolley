@@ -88,7 +88,7 @@ class Search extends React.Component {
           if (window.location.href.indexOf('/soeg') > -1) {
             this.hideSearch()
           } else {
-            window.location.href = `https://opskrifter.secure:5002/soeg?q=${encodeURI(searchText)}`
+            window.location.href = `/soeg?q=${encodeURI(searchText)}`
           }
           break
 

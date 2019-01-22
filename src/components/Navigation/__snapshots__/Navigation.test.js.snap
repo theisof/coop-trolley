@@ -109,8 +109,8 @@ exports[`Navigation renders correctly 1`] = `
           className="coop-site-nav__search "
         >
           <Search
-            hideSearch={[Function]}
             mobileSearchVisible={false}
+            resetSearch={[Function]}
           >
             <div
               className="coop-search"
@@ -123,7 +123,6 @@ exports[`Navigation renders correctly 1`] = `
               <input
                 className="coop-search__input"
                 id="coop-search__input"
-                onBlur={[Function]}
                 onChange={[Function]}
                 onClick={[Function]}
                 placeholder="Søg..."
