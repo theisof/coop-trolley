@@ -63,9 +63,14 @@ class Search extends React.Component {
 
   componentDidUpdate(prevProps) {
     const { mobileSearchVisible } = this.props
+    const { searchText, isActive} = this.state
 
     if (prevProps.mobileSearchVisible !==  mobileSearchVisible && mobileSearchVisible ) {
       this.searchInput && this.searchInput.current.focus()
+
+      if (! isActive ) {
+        this.setState({ isActive: true })
+      }
     }
   }
 
@@ -178,6 +183,12 @@ class Search extends React.Component {
                   <div className='coop-search__fallback'>Ingen resultater</div>
                 }
 
+                { isSearching &&
+                  <div className='coop-search__fallback'>
+                    { searchText.length === 0 ? 'Henter populære søgeresultater...' : 'Søger...' }
+                  </div>
+                }
+
                 { searchFailed &&
                   <div className='coop-search__fallback'>Der er sket en fejl</div>
                 }
@@ -213,8 +224,8 @@ class Search extends React.Component {
         </div>
 
         <Backdrop
-          visible={isActive && searchResults.length > 0}
-          onClose={this.hideSearch}
+          visible={ isActive }
+          onClose={ this.hideSearch }
         />
       </Fragment>
     )
