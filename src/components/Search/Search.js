@@ -63,7 +63,7 @@ class Search extends React.Component {
 
   componentDidUpdate(prevProps) {
     const { mobileSearchVisible } = this.props
-    const { searchText, isActive} = this.state
+    const { isActive} = this.state
 
     if (prevProps.mobileSearchVisible !==  mobileSearchVisible && mobileSearchVisible ) {
       this.searchInput && this.searchInput.current.focus()
