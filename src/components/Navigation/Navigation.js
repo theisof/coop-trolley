@@ -19,7 +19,7 @@ class Navigation extends React.Component {
     this.showMobileNav = this.showMobileNav.bind(this)
     this.hideMobileNav = this.hideMobileNav.bind(this)
     this.showMobileSearch = this.showMobileSearch.bind(this)
-    this.hideSearch = this.hideSearch.bind(this)
+    this.resetSearch = this.resetSearch.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleScroll = this.handleScroll.bind(this)
     this.siteNav = React.createRef()
@@ -70,7 +70,7 @@ class Navigation extends React.Component {
     this.setState({ mobileSearchVisible: true })
   }
 
-  hideSearch () {
+  resetSearch () {
     this.setState({ mobileSearchVisible: false })
     this.props.onSearchReset()
   }
@@ -127,7 +127,7 @@ class Navigation extends React.Component {
             <div className={`coop-site-nav__search ${mobileSearchVisibleClass}`}>
               <Search
                 {...this.props}
-                hideSearch={this.hideSearch}
+                resetSearch={this.resetSearch}
                 mobileSearchVisible={mobileSearchVisible}
               />
             </div>

@@ -11,12 +11,14 @@ class Search extends React.Component {
     this.state = {
       searchText: '',
       selected: 0,
-      didSearch: false
+      didSearch: false,
+      isActive: false
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.hideSearch = this.hideSearch.bind(this)
+    this.resetSearch = this.resetSearch.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.hideSearch = this.hideSearch.bind(this)
     this.searchInput = React.createRef()
   }
 
@@ -61,14 +63,19 @@ class Search extends React.Component {
 
   componentDidUpdate(prevProps) {
     const { mobileSearchVisible } = this.props
+    const { searchText, isActive} = this.state
 
     if (prevProps.mobileSearchVisible !==  mobileSearchVisible && mobileSearchVisible ) {
       this.searchInput && this.searchInput.current.focus()
+
+      if (! isActive ) {
+        this.setState({ isActive: true })
+      }
     }
   }
 
   handleKeyPress(e) {
-    const { selected, searchResults, count, searchText } = this.state
+    const { selected, searchResults, count, searchText, isActive } = this.state
     const goUp = () => {
       e.preventDefault()
       selected > 0 && this.setState({ selected: selected -1 })
@@ -80,22 +87,26 @@ class Search extends React.Component {
       count > selected && this.setState({ selected: selected + 1})
     }
 
-    if (searchResults.length) {
+    if (isActive) {
       switch(e.key) {
         case 'Enter':
-          window.location.href = `/soeg#?query=${searchText}`
+          if (window.location.href.indexOf('/soeg') > -1) {
+            this.hideSearch()
+          } else {
+            window.location.href = `/soeg?q=${encodeURI(searchText)}`
+          }
           break
 
         case 'Escape':
-          this.hideSearch()
+          this.resetSearch()
           break
 
         case 'ArrowDown':
-          goDown()
+          searchResults.length && goDown()
           break
 
         case 'ArrowUp':
-          goUp()
+          searchResults.length && goUp()
           break
 
         case 'Tab':
@@ -108,23 +119,28 @@ class Search extends React.Component {
   handleInputChange(e) {
     const value = e.target.value
 
-    this.setState({ searchText: value, selected: 0 })
+    this.setState({ searchText: value, selected: 0, isActive: true })
 
     clearTimeout(this.timer)
+
     this.timer = setTimeout(() => {
       this.props.onSearchInput(value)
     }, 350)
   }
 
+  resetSearch() {
+    this.props.resetSearch()
+    this.setState({ searchText: '', selected: 0, isActive: false })
+  }
+
   hideSearch() {
-    this.props.hideSearch()
-    this.setState({ searchText: '', selected: 0 })
+    this.setState({ isActive: false })
   }
 
   render() {
     const { onSearchItemClick, isSearching, searchFailed } = this.props
-    const { searchText, selected, searchResults, hasRequired, didSearch } = this.state
-    const clearWrapClass = searchText.length ? 'coop-search__clear-wrap--has-input' : ''
+    const { searchText, selected, searchResults, hasRequired, didSearch, isActive } = this.state
+    const clearWrapClass = isActive ? 'coop-search__clear-wrap--has-input' : ''
     const maxHeightStyle = window.innerWidth < 768 ? { maxHeight: window.innerHeight - 60 } : {}
 
     return (
@@ -140,54 +156,65 @@ class Search extends React.Component {
             id='coop-search__input'
             className='coop-search__input'
             placeholder="Søg..."
+            onClick={this.handleInputChange}
             onChange={this.handleInputChange}
             value={searchText}
             ref={this.searchInput}
           />
 
-          { isSearching &&
-            <Loader
-              options={{
-                radius: 4,
-                length: 4,
-                width: 2,
-                lines: 10,
-                color: '#555',
-                left: 'auto',
-                className: 'coop-search__loader'
-              }}
-            />
+          { isActive &&
+            <Fragment>
+              { isSearching &&
+                <Loader
+                  options={{
+                    radius: 4,
+                    length: 4,
+                    width: 2,
+                    lines: 10,
+                    color: '#555',
+                    left: 'auto',
+                    className: 'coop-search__loader'
+                  }}
+                />
+              }
+
+              <div className='coop-search__results' style={maxHeightStyle}>
+                { didSearch && ! hasRequired && ! searchFailed &&
+                  <div className='coop-search__fallback'>Ingen resultater</div>
+                }
+
+                { isSearching &&
+                  <div className='coop-search__fallback'>
+                    { searchText.length === 0 ? 'Henter populære søgeresultater...' : 'Søger...' }
+                  </div>
+                }
+
+                { searchFailed &&
+                  <div className='coop-search__fallback'>Der er sket en fejl</div>
+                }
+
+                { searchResults.map((s, i) =>
+                  <div key={i} className='coop-search__section'>
+                    <h4 className='coop-search__section-title'>{s.title}</h4>
+
+                    <div className='coop-search__section-results'>
+                      { s.results.map((r, e) =>
+                        <SearchItem
+                          {...r}
+                          key={e}
+                          onSearchItemClick={onSearchItemClick}
+                          isSelected={selected === r.index}
+                          index={r.index}
+                        />
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </Fragment>
           }
 
-          <div className='coop-search__results' style={maxHeightStyle}>
-            { didSearch && ! hasRequired && ! searchFailed &&
-              <div className='coop-search__fallback'>Ingen resultater</div>
-            }
-
-            { searchFailed &&
-              <div className='coop-search__fallback'>Der er sket en fejl</div>
-            }
-
-            { searchResults.map((s, i) =>
-              <div key={i} className='coop-search__section'>
-                <h4 className='coop-search__section-title'>{s.title}</h4>
-
-                <div className='coop-search__section-results'>
-                  { s.results.map((r, e) =>
-                    <SearchItem
-                      {...r}
-                      key={e}
-                      onSearchItemClick={onSearchItemClick}
-                      isSelected={selected === r.index}
-                      index={r.index}
-                    />
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className={`coop-search__clear-wrap ${clearWrapClass}`} onClick={this.hideSearch}>
+          <div className={`coop-search__clear-wrap ${clearWrapClass}`} onClick={this.resetSearch}>
             <img
               src={getImagePath('times-black.svg')}
               className='coop-search__clear-image'
@@ -197,8 +224,8 @@ class Search extends React.Component {
         </div>
 
         <Backdrop
-          visible={searchResults.length > 0}
-          onClose={this.hideSearch}
+          visible={ isActive }
+          onClose={ this.hideSearch }
         />
       </Fragment>
     )

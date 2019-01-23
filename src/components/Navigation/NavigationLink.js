@@ -1,7 +1,7 @@
 import React from 'react'
 import getImagePath from '../../utils/getImagePath'
 
-const NavigationLink = ({ name, link, onClick, Component, iconUrl, className, isCurrent, isBlank = 'false' }) => {
+const NavigationLink = ({ name, link, onClick, Component, iconUrl, className, isCurrent, isBlank = false }) => {
   const baseClass = 'coop-nav__link'
   const currentClass = isCurrent ? `${baseClass}--is-current ${className}--is-current` : ''
   const allClasses = `${baseClass} ${currentClass} ${className}`
