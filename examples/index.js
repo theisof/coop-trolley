@@ -1,12 +1,15 @@
 import React from 'react'
 import { render} from 'react-dom'
-import { Button, initPopupBox } from '../src'
+import { BackdropVanilla, Button, initPopupBox } from '../src'
 import Navigation from './Navigation'
 import '../src/styles/coop-trolley.scss'
 import './example.css'
 
-class App extends React.Component {
+let backdrop = new BackdropVanilla()
+backdrop.init()
+backdrop.open()
 
+class App extends React.Component {
   render () {
     return (
       <div>
